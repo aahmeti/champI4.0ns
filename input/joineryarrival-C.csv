@@ -1,0 +1,16 @@
+label,Company,Seller,Order date,Delivery number,Delivery date,Wood species,Assortment,Length,Width,Thickness,Timber square meter,Timber volume,Quality class,Moisture content,Specific characteristics,Import,National trade,Certification
+F1L966B1,Joinery C,Sawmill,5/1/24 0:00,73580,5/6/24 0:00,fir,Sawn Board,400,21,2,5,0,84,0,021,2,9,,No,Yes,no
+F1L966B2,Joinery C,Sawmill,6/1/24 0:00,65020,6/4/24 0:00,fir,Sawn Board,400,21,2,5,0,84,0,021,2,7,,No,Yes,no
+F1L966B3,Joinery C,Sawmill,6/1/24 0:00,65020,6/4/24 0:00,fir,Sawn Board,400,21,2,5,0,84,0,021,2,9,,No,Yes,no
+F1L607B1,Joinery C,Sawmill,6/1/24 0:00,65020,6/4/24 0:00,fir,Sawn Board,400,23,6,5,0,92,0,0598,2,9,,No,Yes,no
+F1L966B4,Joinery C,Sawmill,8/1/24 0:00,59350,8/5/24 0:00,fir,Sawn Board,400,21,2,5,0,84,0,021,2,6,,No,Yes,no
+F1L607B2,Joinery C,Sawmill,8/1/24 0:00,59350,8/5/24 0:00,fir,Sawn Board,400,23,6,5,0,92,0,0598,2,9,,No,Yes,no
+F1L966B5,Joinery C,Sawmill,9/1/24 0:00,46660,9/4/24 0:00,fir,Sawn Board,400,21,2,5,0,84,0,021,2,8,,No,Yes,no
+F1L966B6,Joinery C,Sawmill,9/1/24 0:00,46660,9/4/24 0:00,fir,Sawn Board,400,21,2,5,0,84,0,021,2,7,,No,Yes,no
+F1L607B3,Joinery C,Sawmill,9/1/24 0:00,46660,9/4/24 0:00,fir,Sawn Board,400,23,6,5,0,92,0,0598,2,9,,No,Yes,no
+F1L966B7,Joinery C,Sawmill,10/1/24 0:00,87520,10/4/24 0:00,fir,Sawn Board,400,21,2,5,0,84,0,021,2,8,,No,Yes,no
+F1L607B4,Joinery C,Sawmill,10/1/24 0:00,87520,10/4/24 0:00,fir,Sawn Board,400,23,6,5,0,92,0,0598,2,8,,No,Yes,no
+F1L966B8,Joinery C,Sawmill,11/1/24 0:00,58380,11/4/24 0:00,fir,Sawn Board,400,21,2,5,0,84,0,021,2,6,,No,Yes,no
+F1L1240B1,Joinery C,Sawmill,11/1/24 0:00,58380,11/4/24 0:00,fir,Sawn Board,400,18,2,5,0,72,0,018,2,8,,No,Yes,no
+F1L1240B2,Joinery C,Sawmill,11/1/24 0:00,58380,11/4/24 0:00,fir,Sawn Board,400,18,2,5,0,72,0,018,2,8,,No,Yes,no
+F1L1032B1,Joinery C,Sawmill,11/1/24 0:00,58380,11/4/24 0:00,fir,Sawn Board,400,22,6,5,0,88,0,0572,2,8,,No,Yes,no

@@ -1,0 +1,29 @@
+@prefix champ-onto: <https://schema.champi40ns.eu#> .
+@prefix champ-inst: <https://resource.champi40ns.eu/> .
+@prefix champ-taxo: <https://taxonomy.champi40ns.eu/> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rsx: <http://rdf4j.org/shacl-extensions#> .
+
+champ-inst:JoineryArrival1Shape
+    a sh:NodeShape ;
+    sh:targetClass champ-onto:Board ;
+
+    sh:property [
+        sh:path champ-onto:company  ;
+        sh:in ("Joinery A" "Joinery B" "Joinery C")
+    ] .
+    [
+      a rsx:DataAndShapesGraphLink;
+      rsx:shapesGraph <urn:shapes-joinery>;
+            rsx:dataGraph <https://data.champi40ns.eu/joinery-arrival/> ;
+    ] .
+
+champ-inst:JoineryArrival2Shape
+    a sh:NodeShape ;
+    sh:targetClass champ-onto:Board ;
+
+    sh:property [
+        sh:path champ-onto:qualityClass  ;
+        sh:in ("1" "2" "3")
+    ] .

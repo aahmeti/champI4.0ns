@@ -1,0 +1,571 @@
+@prefix agg: <http://jena.apache.org/ARQ/function/aggregate#> .
+@prefix : <https://schema.champi40ns.eu/DPPOntology#> .
+@prefix qudt: <http://qudt.org/schema/qudt/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix geof: <http://www.opengis.net/def/function/geosparql/> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix ns1: <https://schema.champi40ns.eu#> .
+@prefix spif: <http://spinrdf.org/spif#> .
+@prefix path: <http://www.ontotext.com/path#> .
+@prefix apf: <http://jena.apache.org/ARQ/property#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix actorODP: <http://w3id.org/CEON/ontology/actorODP/> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix rep: <http://www.openrdf.org/config/repository#> .
+@prefix vann: <http://purl.org/vocab/vann/> .
+@prefix wot: <http://xmlns.com/wot/0.1/> .
+@prefix plan: <http://w3id.org/CEON/ontology/plan/> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix wgs: <http://www.w3.org/2003/01/geo/wgs84_pos#> .
+@prefix list: <http://jena.apache.org/ARQ/list#> .
+@prefix champ-taxo: <https://taxonomy.champi40ns.eu/> .
+@prefix unit: <http://qudt.org/vocab/unit/> .
+@prefix ex: <http://example.com/> .
+@prefix geoext: <http://rdf.useekm.com/ext#> .
+@prefix odp: <http://www.ontologydesignpatterns.org/schemas/cpannotationschema.owl#> .
+@prefix sesame: <http://www.openrdf.org/schema/sesame#> .
+@prefix math: <http://www.w3.org/2005/xpath-functions/math> .
+@prefix vs: <http://www.w3.org/2003/06/sw-vocab-status/ns#> .
+@prefix champ-inst: <https://resource.champi40ns.eu/> .
+@prefix sail: <http://www.openrdf.org/config/sail#> .
+@prefix bot: <https://w3id.org/bot#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix fn: <http://www.w3.org/2005/xpath-functions> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix geo: <http://www.opengis.net/ont/geosparql#> .
+@prefix array: <http://www.w3.org/2005/xpath-functions/array> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix rsx: <http://rdf4j.org/shacl-extensions#> .
+@prefix resourceODP: <http://w3id.org/CEON/ontology/resourceODP/> .
+@prefix statement: <http://w3id.org/CEON/ontology/statement/> .
+@prefix map: <http://www.w3.org/2005/xpath-functions/map> .
+@prefix value: <http://w3id.org/CEON/ontology/value/> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix sr: <http://www.openrdf.org/config/repository/sail#> .
+@prefix rdf4j: <http://rdf4j.org/schema/rdf4j#> .
+@prefix product: <http://w3id.org/CEON/ontology/product/> .
+@prefix process: <http://w3id.org/CEON/ontology/process/> .
+@prefix quantity: <http://w3id.org/CEON/ontology/quantity/> .
+@prefix processODP: <http://w3id.org/CEON/ontology/processODP/> .
+@prefix gn: <http://www.geonames.org/ontology#> .
+@prefix afn: <http://jena.apache.org/ARQ/function#> .
+@prefix actor: <http://w3id.org/CEON/ontology/actor/> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix ofn: <http://www.ontotext.com/sparql/functions/> .
+@prefix graphdb: <http://www.ontotext.com/config/graphdb#> .
+@prefix location: <http://w3id.org/CEON/ontology/location/> .
+@prefix omgeo: <http://www.ontotext.com/owlim/geo#> .
+@prefix dc: <http://purl.org/dc/elements/1.1/#> .
+
+<urn:tbox> {
+  <https://schema.champi40ns.eu/DPPOntology#> a owl:Ontology;
+    owl:versionIRI <https://schema.champi40ns.eu/DPPOntology#>;
+    dc:description "A draft of digital product passport ontology"@en;
+    dc:title "DPP ontology"@en;
+    owl:versionInfo "007"@en .
+  
+  dc:description a owl:AnnotationProperty .
+  
+  dc:title a owl:AnnotationProperty .
+  
+  :contains a owl:ObjectProperty;
+    rdfs:domain :Material;
+    rdfs:range :UsedMaterial;
+    rdfs:label "contains"@en .
+  
+  :Material a owl:Class;
+    rdfs:label "Material"@en, "Material"@iri-based .
+  
+  :UsedMaterial a owl:Class;
+    rdfs:label "UsedMaterial"@en .
+  
+  :hasCondition a owl:ObjectProperty;
+    rdfs:domain :Parameter;
+    rdfs:range :Condition;
+    rdfs:label "hasCondition"@en, "hasCondition"@iri-based .
+  
+  :Parameter a owl:Class;
+    rdfs:label "MeasuredParameter"@en, "Parameter"@iri-based .
+  
+  :Condition a owl:Class;
+    rdfs:label "Condition"@en, "Condition"@iri-based .
+  
+  :hasEnvironmentImpact a owl:ObjectProperty;
+    rdfs:domain :Production;
+    rdfs:range :EnvironmentImpact;
+    rdfs:label "hasEnvironmentImpact"@en, "hasEnvironmentImpact"@iri-based .
+  
+  :Production a owl:Class;
+    rdfs:label "Production"@en, "Production"@iri-based .
+  
+  :EnvironmentImpact a owl:Class;
+    rdfs:label "EnvironmentImpact"@en, "EnvironmentImpact"@iri-based .
+  
+  :hasParameter a owl:ObjectProperty;
+    rdfs:domain :Material;
+    rdfs:range :Parameter;
+    rdfs:label "hasMeasuredParameter"@en, "hasParameter"@iri-based .
+  
+  :isUsedIn a owl:ObjectProperty;
+    rdfs:domain :UsedMaterial;
+    rdfs:range :Production;
+    rdfs:label "isUsedIn"@en .
+  
+  :isUsedToProduce a owl:ObjectProperty;
+    rdfs:subPropertyOf owl:topObjectProperty;
+    rdfs:domain :Log;
+    rdfs:range :Board;
+    rdfs:label "isUsedToProduce"@en .
+  
+  :Log a owl:Class;
+    rdfs:label "Log"@en .
+  
+  :Board a owl:Class;
+    rdfs:label "Board"@en .
+  
+  :produces a owl:ObjectProperty;
+    rdfs:domain :Production;
+    rdfs:range :Material;
+    rdfs:label "produces"@en, "produces"@iri-based .
+  
+  :refersToLogTransport a owl:ObjectProperty;
+    rdfs:subPropertyOf owl:topObjectProperty;
+    rdfs:domain :Transport;
+    rdfs:range :Transport;
+    rdfs:label "refersToLogTransport"@en .
+  
+  :Transport a owl:Class;
+    rdfs:label "Transport"@en .
+  
+  :refersToTransport a owl:ObjectProperty;
+    rdfs:subPropertyOf owl:topObjectProperty;
+    rdfs:domain :Log;
+    rdfs:range :Transport;
+    rdfs:label "refersToTransport"@en .
+  
+  :assortment a owl:DatatypeProperty;
+    rdfs:subPropertyOf owl:topDataProperty;
+    rdfs:domain _:genid-c6534256d5644abcb5bc9a852b46e4f313039711-node40;
+    rdfs:label "assortment"@en .
+  
+  _:genid-c6534256d5644abcb5bc9a852b46e4f313039711-node40 a owl:Class;
+    owl:unionOf _:genid-c6534256d5644abcb5bc9a852b46e4f313039711-node41 .
+  
+  :boardNo a owl:DatatypeProperty;
+    rdfs:subPropertyOf owl:topDataProperty;
+    rdfs:domain :Board;
+    rdfs:label "boardNo"@en .
+  
+  :cargoVehicle a owl:DatatypeProperty;
+    rdfs:subPropertyOf owl:topDataProperty;
+    rdfs:domain :Transport;
+    rdfs:label "cargoVehicle"@en .
+  
+  :certification a owl:DatatypeProperty;
+    rdfs:subPropertyOf owl:topDataProperty;
+    rdfs:domain _:genid-c6534256d5644abcb5bc9a852b46e4f313039711-node43;
+    rdfs:label "certification"@en .
+  
+  _:genid-c6534256d5644abcb5bc9a852b46e4f313039711-node43 a owl:Class;
+    owl:unionOf _:genid-c6534256d5644abcb5bc9a852b46e4f313039711-node44 .
+  
+  :company a owl:DatatypeProperty;
+    rdfs:subPropertyOf owl:topDataProperty;
+    rdfs:domain _:genid-c6534256d5644abcb5bc9a852b46e4f313039711-node47;
+    rdfs:label "company"@en .
+  
+  _:genid-c6534256d5644abcb5bc9a852b46e4f313039711-node47 a owl:Class;
+    owl:unionOf _:genid-c6534256d5644abcb5bc9a852b46e4f313039711-node48 .
+  
+  :country a owl:DatatypeProperty;
+    rdfs:subPropertyOf owl:topDataProperty;
+    rdfs:domain :Log;
+    rdfs:label "country"@en .
+  
+  :customer a owl:DatatypeProperty;
+    rdfs:subPropertyOf owl:topDataProperty;
+    rdfs:domain _:genid-c6534256d5644abcb5bc9a852b46e4f313039711-node51;
+    rdfs:label "customer"@en .
+  
+  _:genid-c6534256d5644abcb5bc9a852b46e4f313039711-node51 a owl:Class;
+    owl:unionOf _:genid-c6534256d5644abcb5bc9a852b46e4f313039711-node52 .
+  
+  :degree a owl:DatatypeProperty;
+    rdfs:domain :Recyclability;
+    rdfs:range xsd:double;
+    rdfs:label "degree"@en, "degree"@iri-based .
+  
+  :Recyclability a owl:Class;
+    rdfs:subClassOf :EnvironmentImpact;
+    rdfs:label "Recyclability"@en, "Recyclability"@iri-based .
+  
+  :deliveryDate a owl:DatatypeProperty;
+    rdfs:subPropertyOf owl:topDataProperty;
+    rdfs:label "deliveryDate"@en .
+  
+  :deliveryLocation a owl:DatatypeProperty;
+    rdfs:subPropertyOf owl:topDataProperty;
+    rdfs:domain :Transport;
+    rdfs:label "deliveryLocation"@en .
+  
+  :deliveryNo a owl:DatatypeProperty;
+    rdfs:subPropertyOf owl:topDataProperty;
+    rdfs:domain :Transport;
+    rdfs:label "deliveryNo"@en .
+  
+  :export a owl:DatatypeProperty;
+    rdfs:subPropertyOf owl:topDataProperty;
+    rdfs:domain _:genid-c6534256d5644abcb5bc9a852b46e4f313039711-node54;
+    rdfs:label "export"@en .
+  
+  _:genid-c6534256d5644abcb5bc9a852b46e4f313039711-node54 a owl:Class;
+    owl:unionOf _:genid-c6534256d5644abcb5bc9a852b46e4f313039711-node55 .
+  
+  :federalState a owl:DatatypeProperty;
+    rdfs:subPropertyOf owl:topDataProperty;
+    rdfs:domain :Log;
+    rdfs:label "federalState"@en .
+  
+  :freightDepartureDate a owl:DatatypeProperty;
+    rdfs:subPropertyOf owl:topDataProperty;
+    rdfs:domain :Transport;
+    rdfs:label "freightDepartureDate"@en .
+  
+  :fromLocation a owl:DatatypeProperty;
+    rdfs:domain :UsedMaterial;
+    rdfs:range rdfs:Literal;
+    rdfs:label "fromLocation"@en .
+  
+  :harvestingDate a owl:DatatypeProperty;
+    rdfs:subPropertyOf owl:topDataProperty;
+    rdfs:domain :Log;
+    rdfs:label "harvestingDate"@en .
+  
+  :hasConditionValue a owl:DatatypeProperty;
+    rdfs:domain :Condition;
+    rdfs:range xsd:double;
+    rdfs:label "hasConditionValue"@en, "hasConditionValue"@iri-based .
+  
+  :hasDeliveryNo a owl:DatatypeProperty;
+    rdfs:domain :UsedMaterial;
+    rdfs:range rdfs:Literal;
+    rdfs:label "hasDeliveryNo"@en .
+  
+  :hasMaterialType a owl:DatatypeProperty;
+    rdfs:domain :Material;
+    rdfs:range rdfs:Literal;
+    rdfs:label "hasMaterialType"@iri-based, "materialType"@en .
+  
+  :hasMeasurementUnit a owl:DatatypeProperty;
+    rdfs:domain :Parameter;
+    rdfs:range rdfs:Literal;
+    rdfs:label "hasMeasurementUnit"@en, "hasMeasurementUnit"@iri-based .
+  
+  :hasParameterValue a owl:DatatypeProperty;
+    rdfs:domain :Parameter;
+    rdfs:range xsd:double;
+    rdfs:label "hasParameterValue"@en, "hasParameterValue"@iri-based .
+  
+  :hasProductionDate a owl:DatatypeProperty;
+    rdfs:domain :UsedMaterial;
+    rdfs:range rdfs:Literal;
+    rdfs:label "hasProductionDate"@en .
+  
+  :hasProvenance a owl:DatatypeProperty;
+    rdfs:subPropertyOf owl:topDataProperty;
+    rdfs:domain _:genid-c6534256d5644abcb5bc9a852b46e4f313039711-node58;
+    rdfs:label "hasProvenance"@en .
+  
+  _:genid-c6534256d5644abcb5bc9a852b46e4f313039711-node58 a owl:Class;
+    owl:unionOf _:genid-c6534256d5644abcb5bc9a852b46e4f313039711-node59 .
+  
+  :hasScope a owl:DatatypeProperty;
+    rdfs:domain :CO2Emissions;
+    rdfs:range rdfs:Literal;
+    rdfs:label "hasScope"@en, "hasScope"@iri-based .
+  
+  :CO2Emissions a owl:Class;
+    rdfs:subClassOf :EnvironmentImpact;
+    rdfs:label "CO2Emissions"@en, "CO2Emissions"@iri-based .
+  
+  :hasTestMethod a owl:DatatypeProperty;
+    rdfs:domain :Parameter;
+    rdfs:range rdfs:Literal;
+    rdfs:label "hasTestMethod"@en, "hasTestMethod"@iri-based .
+  
+  :hasType a owl:DatatypeProperty;
+    rdfs:domain :Condition;
+    rdfs:range rdfs:Literal;
+    rdfs:label "hasType"@en, "hasType"@iri-based .
+  
+  :hasUnit a owl:DatatypeProperty;
+    rdfs:domain :EnvironmentImpact;
+    rdfs:range rdfs:Literal;
+    rdfs:label "hasUnit"@en, "hasUnit"@iri-based .
+  
+  :hasValue a owl:DatatypeProperty;
+    rdfs:domain :EnvironmentImpact;
+    rdfs:range xsd:double;
+    rdfs:label "hasValue"@en, "hasValue"@iri-based .
+  
+  :import a owl:DatatypeProperty;
+    rdfs:subPropertyOf owl:topDataProperty;
+    rdfs:domain :Transport;
+    rdfs:label "import"@en .
+  
+  :label a owl:DatatypeProperty;
+    rdfs:subPropertyOf owl:topDataProperty;
+    rdfs:domain _:genid-c6534256d5644abcb5bc9a852b46e4f313039711-node61;
+    rdfs:label "label"@en .
+  
+  _:genid-c6534256d5644abcb5bc9a852b46e4f313039711-node61 a owl:Class;
+    owl:unionOf _:genid-c6534256d5644abcb5bc9a852b46e4f313039711-node62 .
+  
+  :RawMaterial a owl:Class;
+    rdfs:subClassOf :Material;
+    rdfs:label "RawMaterial"@en, "RawMaterial"@iri-based .
+  
+  :length a owl:DatatypeProperty;
+    rdfs:subPropertyOf owl:topDataProperty;
+    rdfs:domain _:genid-c6534256d5644abcb5bc9a852b46e4f313039711-node66;
+    rdfs:label "length"@en .
+  
+  _:genid-c6534256d5644abcb5bc9a852b46e4f313039711-node66 a owl:Class;
+    owl:unionOf _:genid-c6534256d5644abcb5bc9a852b46e4f313039711-node67 .
+  
+  :loadingPointLat a owl:DatatypeProperty;
+    rdfs:subPropertyOf owl:topDataProperty;
+    rdfs:domain :Transport;
+    rdfs:label "loadingPointLat"@en .
+  
+  :loadingPointLon a owl:DatatypeProperty;
+    rdfs:subPropertyOf owl:topDataProperty;
+    rdfs:domain :Transport;
+    rdfs:label "loadingPointLon"@en .
+  
+  :locatedAt a owl:DatatypeProperty;
+    rdfs:domain :Production;
+    rdfs:range xsd:string;
+    rdfs:label "locatedAt"@en, "locatedAt"@iri-based .
+  
+  :logHarvestedInForestNo a owl:DatatypeProperty;
+    rdfs:subPropertyOf owl:topDataProperty;
+    rdfs:domain :Log;
+    rdfs:label "logHarvestedInForestNo"@en .
+  
+  :logNo a owl:DatatypeProperty;
+    rdfs:subPropertyOf owl:topDataProperty;
+    rdfs:domain :Log;
+    rdfs:label "logNo"@en .
+  
+  :lumberQuantity a owl:DatatypeProperty;
+    rdfs:subPropertyOf owl:topDataProperty;
+    rdfs:domain :Log;
+    rdfs:label "lumberQuantity"@en .
+  
+  :moistureContent a owl:DatatypeProperty;
+    rdfs:subPropertyOf owl:topDataProperty;
+    rdfs:domain :Board;
+    rdfs:label "moistureContent"@en .
+  
+  :moonPhase a owl:DatatypeProperty;
+    rdfs:subPropertyOf owl:topDataProperty;
+    rdfs:domain :Log;
+    rdfs:label "moonPhase"@en .
+  
+  :municipality a owl:DatatypeProperty;
+    rdfs:subPropertyOf owl:topDataProperty;
+    rdfs:domain :Log;
+    rdfs:label "municipality"@en .
+  
+  :nationalTrade a owl:DatatypeProperty;
+    rdfs:subPropertyOf owl:topDataProperty;
+    rdfs:domain _:genid-c6534256d5644abcb5bc9a852b46e4f313039711-node69;
+    rdfs:label "nationalTrade"@en .
+  
+  _:genid-c6534256d5644abcb5bc9a852b46e4f313039711-node69 a owl:Class;
+    owl:unionOf _:genid-c6534256d5644abcb5bc9a852b46e4f313039711-node70 .
+  
+  :parameterType a owl:DatatypeProperty;
+    rdfs:domain :Parameter;
+    rdfs:range rdfs:Literal;
+    rdfs:label "parameterType"@en, "parameterType"@iri-based .
+  
+  :producedBy a owl:DatatypeProperty;
+    rdfs:domain :Material;
+    rdfs:range rdfs:Literal;
+    rdfs:label "producedBy"@en, "producedBy"@iri-based .
+  
+  :productionDate a owl:DatatypeProperty;
+    rdfs:subPropertyOf owl:topDataProperty;
+    rdfs:domain :Board;
+    rdfs:label "productionDate"@en .
+  
+  :qualityClass a owl:DatatypeProperty;
+    rdfs:subPropertyOf owl:topDataProperty;
+    rdfs:domain _:genid-c6534256d5644abcb5bc9a852b46e4f313039711-node73;
+    rdfs:label "qualityClass"@en .
+  
+  _:genid-c6534256d5644abcb5bc9a852b46e4f313039711-node73 a owl:Class;
+    owl:unionOf _:genid-c6534256d5644abcb5bc9a852b46e4f313039711-node74 .
+  
+  :quantityPerProducedUnit a owl:DatatypeProperty;
+    rdfs:domain :UsedMaterial;
+    rdfs:range rdfs:Literal;
+    rdfs:label "quantityPerProducedUnit"@en .
+  
+  :seller a owl:DatatypeProperty;
+    rdfs:subPropertyOf owl:topDataProperty;
+    rdfs:label "seller"@en .
+  
+  :side a owl:DatatypeProperty;
+    rdfs:subPropertyOf owl:topDataProperty;
+    rdfs:domain :Log;
+    rdfs:label "side"@en .
+  
+  :sizeClass a owl:DatatypeProperty;
+    rdfs:subPropertyOf owl:topDataProperty;
+    rdfs:domain :Log;
+    rdfs:label "sizeClass"@en .
+  
+  :storagePlace a owl:DatatypeProperty;
+    rdfs:subPropertyOf owl:topDataProperty;
+    rdfs:label "storagePlace"@en .
+  
+  :thickness a owl:DatatypeProperty;
+    rdfs:subPropertyOf owl:topDataProperty;
+    rdfs:domain :Board;
+    rdfs:label "thickness"@en .
+  
+  :timberInSquareMeter a owl:DatatypeProperty;
+    rdfs:subPropertyOf owl:topDataProperty;
+    rdfs:domain :Board;
+    rdfs:label "timberInSquareMeter"@en .
+  
+  :timberVolume a owl:DatatypeProperty;
+    rdfs:subPropertyOf owl:topDataProperty;
+    rdfs:domain :Board;
+    rdfs:label "timberVolume"@en .
+  
+  :treeSpecies a owl:DatatypeProperty;
+    rdfs:subPropertyOf owl:topDataProperty;
+    rdfs:domain :Transport;
+    rdfs:label "treeSpecies"@en .
+  
+  :truncDiameter a owl:DatatypeProperty;
+    rdfs:subPropertyOf owl:topDataProperty;
+    rdfs:domain :Log;
+    rdfs:label "truncDiameter"@en .
+  
+  :wasteFromTheTrunk a owl:DatatypeProperty;
+    rdfs:subPropertyOf owl:topDataProperty;
+    rdfs:domain :Board;
+    rdfs:label "wasteFromTheTrunk"@en .
+  
+  :width a owl:DatatypeProperty;
+    rdfs:subPropertyOf owl:topDataProperty;
+    rdfs:domain :Board;
+    rdfs:label "width"@en .
+  
+  :woodSpecies a owl:DatatypeProperty;
+    rdfs:subPropertyOf owl:topDataProperty;
+    rdfs:domain _:genid-c6534256d5644abcb5bc9a852b46e4f313039711-node76;
+    rdfs:label "woodSpecies"@en .
+  
+  _:genid-c6534256d5644abcb5bc9a852b46e4f313039711-node76 a owl:Class;
+    owl:unionOf _:genid-c6534256d5644abcb5bc9a852b46e4f313039711-node77 .
+  
+  :Product a owl:Class;
+    rdfs:label "Product"@en, "Product"@iri-based .
+  
+  :Sawmill a owl:Class;
+    rdfs:label "Sawmill"@en .
+  
+  :Waste a owl:Class;
+    rdfs:subClassOf :EnvironmentImpact;
+    rdfs:label "Waste"@en, "Waste"@iri-based .
+  
+  _:genid-c6534256d5644abcb5bc9a852b46e4f313039711-node41 rdf:first :Board;
+    rdf:rest _:genid-c6534256d5644abcb5bc9a852b46e4f313039711-node42 .
+  
+  _:genid-c6534256d5644abcb5bc9a852b46e4f313039711-node44 rdf:first :Board;
+    rdf:rest _:genid-c6534256d5644abcb5bc9a852b46e4f313039711-node45 .
+  
+  _:genid-c6534256d5644abcb5bc9a852b46e4f313039711-node48 rdf:first :Board;
+    rdf:rest _:genid-c6534256d5644abcb5bc9a852b46e4f313039711-node49 .
+  
+  _:genid-c6534256d5644abcb5bc9a852b46e4f313039711-node52 rdf:first :Board;
+    rdf:rest _:genid-c6534256d5644abcb5bc9a852b46e4f313039711-node53 .
+  
+  _:genid-c6534256d5644abcb5bc9a852b46e4f313039711-node55 rdf:first :Board;
+    rdf:rest _:genid-c6534256d5644abcb5bc9a852b46e4f313039711-node56 .
+  
+  _:genid-c6534256d5644abcb5bc9a852b46e4f313039711-node59 rdf:first :Board;
+    rdf:rest _:genid-c6534256d5644abcb5bc9a852b46e4f313039711-node60 .
+  
+  _:genid-c6534256d5644abcb5bc9a852b46e4f313039711-node62 rdf:first :Board;
+    rdf:rest _:genid-c6534256d5644abcb5bc9a852b46e4f313039711-node63 .
+  
+  _:genid-c6534256d5644abcb5bc9a852b46e4f313039711-node67 rdf:first :Board;
+    rdf:rest _:genid-c6534256d5644abcb5bc9a852b46e4f313039711-node68 .
+  
+  _:genid-c6534256d5644abcb5bc9a852b46e4f313039711-node70 rdf:first :Board;
+    rdf:rest _:genid-c6534256d5644abcb5bc9a852b46e4f313039711-node71 .
+  
+  _:genid-c6534256d5644abcb5bc9a852b46e4f313039711-node74 rdf:first :Board;
+    rdf:rest _:genid-c6534256d5644abcb5bc9a852b46e4f313039711-node75 .
+  
+  _:genid-c6534256d5644abcb5bc9a852b46e4f313039711-node77 rdf:first :Board;
+    rdf:rest _:genid-c6534256d5644abcb5bc9a852b46e4f313039711-node78 .
+  
+  _:genid-c6534256d5644abcb5bc9a852b46e4f313039711-node42 rdf:first :Log;
+    rdf:rest rdf:nil .
+  
+  _:genid-c6534256d5644abcb5bc9a852b46e4f313039711-node45 rdf:first :Log;
+    rdf:rest _:genid-c6534256d5644abcb5bc9a852b46e4f313039711-node46 .
+  
+  _:genid-c6534256d5644abcb5bc9a852b46e4f313039711-node46 rdf:first :Transport;
+    rdf:rest rdf:nil .
+  
+  _:genid-c6534256d5644abcb5bc9a852b46e4f313039711-node49 rdf:first :Log;
+    rdf:rest _:genid-c6534256d5644abcb5bc9a852b46e4f313039711-node50 .
+  
+  _:genid-c6534256d5644abcb5bc9a852b46e4f313039711-node50 rdf:first :Transport;
+    rdf:rest rdf:nil .
+  
+  _:genid-c6534256d5644abcb5bc9a852b46e4f313039711-node53 rdf:first :Log;
+    rdf:rest rdf:nil .
+  
+  _:genid-c6534256d5644abcb5bc9a852b46e4f313039711-node56 rdf:first :Log;
+    rdf:rest _:genid-c6534256d5644abcb5bc9a852b46e4f313039711-node57 .
+  
+  _:genid-c6534256d5644abcb5bc9a852b46e4f313039711-node57 rdf:first :Transport;
+    rdf:rest rdf:nil .
+  
+  _:genid-c6534256d5644abcb5bc9a852b46e4f313039711-node60 rdf:first :Log;
+    rdf:rest rdf:nil .
+  
+  _:genid-c6534256d5644abcb5bc9a852b46e4f313039711-node63 rdf:first :Log;
+    rdf:rest _:genid-c6534256d5644abcb5bc9a852b46e4f313039711-node64 .
+  
+  _:genid-c6534256d5644abcb5bc9a852b46e4f313039711-node64 rdf:first :Material;
+    rdf:rest _:genid-c6534256d5644abcb5bc9a852b46e4f313039711-node65 .
+  
+  _:genid-c6534256d5644abcb5bc9a852b46e4f313039711-node65 rdf:first :RawMaterial;
+    rdf:rest rdf:nil .
+  
+  _:genid-c6534256d5644abcb5bc9a852b46e4f313039711-node68 rdf:first :Log;
+    rdf:rest rdf:nil .
+  
+  _:genid-c6534256d5644abcb5bc9a852b46e4f313039711-node71 rdf:first :Log;
+    rdf:rest _:genid-c6534256d5644abcb5bc9a852b46e4f313039711-node72 .
+  
+  _:genid-c6534256d5644abcb5bc9a852b46e4f313039711-node72 rdf:first :Transport;
+    rdf:rest rdf:nil .
+  
+  _:genid-c6534256d5644abcb5bc9a852b46e4f313039711-node75 rdf:first :Log;
+    rdf:rest rdf:nil .
+  
+  _:genid-c6534256d5644abcb5bc9a852b46e4f313039711-node78 rdf:first :Log;
+    rdf:rest rdf:nil .
+}

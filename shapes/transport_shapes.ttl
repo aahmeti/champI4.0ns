@@ -1,0 +1,94 @@
+@prefix champ-onto: <https://schema.champi40ns.eu#> .
+@prefix champ-inst: <https://resource.champi40ns.eu/> .
+@prefix champ-taxo: <https://taxonomy.champi40ns.eu/> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rsx: <http://rdf4j.org/shacl-extensions#> .
+
+champ-inst:Transport1Shape
+    a sh:NodeShape ;
+    sh:targetClass champ-onto:Transport ;
+
+    sh:property [
+        sh:path champ-onto:cargoVehicle ;
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
+    ] ;
+
+    sh:property [
+        sh:path champ-onto:deliveryLocation ;
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
+    ] ;
+
+    sh:property [
+        sh:path champ-onto:deliveryNo ;
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
+    ] ;
+
+    sh:property [
+        sh:path champ-onto:freightDepartureDate ;
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
+    ] ;
+
+    sh:property [
+        sh:path champ-onto:certification ;
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
+    ] ;
+
+    sh:property [
+        sh:path champ-onto:export ;
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
+    ] ;
+
+    sh:property [
+        sh:path champ-onto:import ;
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
+    ] ;
+
+    sh:property [
+        sh:path champ-onto:loadingPointGPSLat ;
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
+    ] ;
+
+    sh:property [
+        sh:path champ-onto:loadingPointGPSLong ;
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
+    ] ;
+
+    sh:property [
+        sh:path champ-onto:company ;
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
+    ] ;
+
+    sh:property [
+        sh:path champ-onto:nationalTrade ;
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
+    ] .
+
+champ-inst:Transport2Shape
+    a sh:NodeShape ;
+    sh:targetClass champ-onto:Transport ;
+
+    sh:property [
+        sh:path champ-onto:transportCarries ;
+        sh:minCount 1 ;
+        sh:message "Transportation should carry at least one log!" ;
+    ] ;
+
+    sh:property [
+        sh:path champ-onto:transportCarries ;
+        sh:nodeKind sh:IRI ;
+        sh:class champ-onto:Log ;
+        sh:message "Transportation should have a Log range!" ;
+
+    ] .

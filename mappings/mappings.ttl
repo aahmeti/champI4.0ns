@@ -1,0 +1,318 @@
+@prefix rr: <http://www.w3.org/ns/r2rml#> .
+@prefix rml: <http://semweb.mmlab.be/ns/rml#> .
+@prefix ql: <http://semweb.mmlab.be/ns/ql#> .
+@prefix champ-onto: <https://schema.champi40ns.eu#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+
+<https://schema.champi40ns.eu/ForestMapping>
+  rml:logicalSource [
+    rml:source "../input/forest.csv" ;
+    rml:referenceFormulation ql:CSV
+  ];
+  rr:subjectMap [
+    rr:template "https://resource.champi40ns.eu/Log/{label}" ;
+    rr:class champ-onto:Log ;
+    rr:graphMap [ rr:constant <https://data.champi40ns.eu/forest/> ]
+  ];
+  rr:predicateObjectMap [ rr:predicate champ-onto:company ; rr:objectMap [ rml:reference "Company" ] ] ;
+  rr:predicateObjectMap [ rr:predicate champ-onto:country ; rr:objectMap [ rml:reference "Country" ] ] ;
+  rr:predicateObjectMap [ rr:predicate champ-onto:federalState ; rr:objectMap [ rml:reference "Federal state" ] ] ;
+  rr:predicateObjectMap [ rr:predicate champ-onto:municipality ; rr:objectMap [ rml:reference "Municipality" ] ] ;
+  rr:predicateObjectMap [ rr:predicate champ-onto:side ; rr:objectMap [ rml:reference "Side" ] ] ;
+  rr:predicateObjectMap [ rr:predicate champ-onto:woodSpecies ; rr:objectMap [ rml:reference "Wood species" ] ] ;
+  rr:predicateObjectMap [ rr:predicate champ-onto:harvestingDate ; rr:objectMap [ rml:reference "Harvesting date" ] ] ;
+  rr:predicateObjectMap [ rr:predicate champ-onto:gpsLat ; rr:objectMap [ rml:reference "GPS coordinate lat" ; rr:datatype xsd:float ] ] ;
+  rr:predicateObjectMap [ rr:predicate champ-onto:gpsLong ; rr:objectMap [ rml:reference "GPS coordinate long" ; rr:datatype xsd:float ] ] ;
+  rr:predicateObjectMap [ rr:predicate champ-onto:truncDiameterInCentimeters ; rr:objectMap [ rml:reference "Trunc diameter" ; rr:datatype xsd:integer ] ] ;
+  rr:predicateObjectMap [ rr:predicate champ-onto:sizeClass ; rr:objectMap [ rml:reference "Size class" ] ] ;
+  rr:predicateObjectMap [ rr:predicate champ-onto:qualityClass ; rr:objectMap [ rml:reference "Quality class" ] ] ;
+  rr:predicateObjectMap [ rr:predicate champ-onto:assortment ; rr:objectMap [ rml:reference "Assortment" ] ] ;
+  rr:predicateObjectMap [ rr:predicate champ-onto:lengthInMeters ; rr:objectMap [ rml:reference "Length" ; rr:datatype xsd:integer ] ] ;
+  rr:predicateObjectMap [ rr:predicate champ-onto:lumberQuantity ; rr:objectMap [ rml:reference "Lumber quantity" ; rr:datatype xsd:float ] ] ;
+  rr:predicateObjectMap [ rr:predicate champ-onto:moonPhase ; rr:objectMap [ rml:reference "Moon phase" ] ] ;
+  rr:predicateObjectMap [ rr:predicate champ-onto:dateOfSale ; rr:objectMap [ rml:reference "Date of Sale" ] ] ;
+  rr:predicateObjectMap [ rr:predicate champ-onto:customer ; rr:objectMap [ rml:reference "Customer" ] ] ;
+  rr:predicateObjectMap [ rr:predicate champ-onto:export ; rr:objectMap [ rml:reference "Export" ] ] ;
+  rr:predicateObjectMap [ rr:predicate champ-onto:nationalTrade ; rr:objectMap [ rml:reference "National Trade" ] ] ;
+  rr:predicateObjectMap [ rr:predicate champ-onto:certification ; rr:objectMap [ rml:reference "Certification" ] ] ;
+  rr:predicateObjectMap [ rr:predicate champ-onto:loadingPointLat ; rr:objectMap [ rml:reference "Loading point (GPS lat)" ] ] ;
+  rr:predicateObjectMap [ rr:predicate champ-onto:loadingPointLong ; rr:objectMap [ rml:reference "Loading point (GPS long)" ; rr:datatype xsd:float ] ] .
+
+<https://schema.champi40ns.eu/ProductMapping_A>
+  rml:logicalSource [
+    rml:source "../input/joineryproduct-A.csv" ;
+    rml:referenceFormulation ql:CSV
+  ];
+  rr:subjectMap [
+    rr:template "https://resource.champi40ns.eu/Product/{Label of boards}" ;
+    rr:class champ-onto:Product ;
+    rr:graphMap [ rr:constant <https://data.champi40ns.eu/joinery-product/> ]
+  ];
+  rr:predicateObjectMap [ rr:predicate champ-onto:company ; rr:objectMap [ rml:reference "Company" ] ] ;
+  rr:predicateObjectMap [ rr:predicate champ-onto:dateOfOrder ; rr:objectMap [ rml:reference "Date of order" ] ] ;
+  rr:predicateObjectMap [ rr:predicate champ-onto:dateOfProduction ; rr:objectMap [ rml:reference "Date of production" ] ] ;
+  rr:predicateObjectMap [ rr:predicate champ-onto:dateOfDelivery ; rr:objectMap [ rml:reference "Date of delivery" ] ] ;
+  rr:predicateObjectMap [ rr:predicate champ-onto:customer ; rr:objectMap [ rml:reference "Customer" ] ] ;
+  rr:predicateObjectMap [ rr:predicate champ-onto:woodSpecies ; rr:objectMap [ rml:reference "Wood species" ] ] ;
+  rr:predicateObjectMap [ rr:predicate champ-onto:productType ; rr:objectMap [ rml:reference "Product" ] ] ;
+  rr:predicateObjectMap [ rr:predicate champ-onto:widthInCentimetre ; rr:objectMap [ rml:reference "Width" ; rr:datatype xsd:integer ] ] ;
+  rr:predicateObjectMap [ rr:predicate champ-onto:heightInCentimetre ; rr:objectMap [ rml:reference "Height" ; rr:datatype xsd:integer ] ] ;
+  rr:predicateObjectMap [ rr:predicate champ-onto:depthInCentimetre ; rr:objectMap [ rml:reference "depth" ; rr:datatype xsd:integer ] ] ;
+  rr:predicateObjectMap [ rr:predicate champ-onto:productWeightInKilograms ; rr:objectMap [ rml:reference "product weight" ; rr:datatype xsd:integer ] ] ;
+  rr:predicateObjectMap [ rr:predicate champ-onto:moistureContentInPercentage ; rr:objectMap [ rml:reference "Moisture content" ] ] ;
+  rr:predicateObjectMap [ rr:predicate champ-onto:surfaceCoating ; rr:objectMap [ rml:reference "Surface Coating" ] ] ;
+  rr:predicateObjectMap [ rr:predicate champ-onto:paint ; rr:objectMap [ rml:reference "Paint" ] ] ;
+  rr:predicateObjectMap [ rr:predicate champ-onto:glueType ; rr:objectMap [ rml:reference "Glue typ" ] ] ;
+  rr:predicateObjectMap [ rr:predicate champ-onto:furnitureFittings ; rr:objectMap [ rml:reference "Furniture fittings" ] ] ;
+  rr:predicateObjectMap [ rr:predicate champ-onto:specificCharacteristics ; rr:objectMap [ rml:reference "Specific characteristics" ] ] ;
+  rr:predicateObjectMap [ rr:predicate champ-onto:maintenanceInstructions ; rr:objectMap [ rml:reference "Maintenance instructions" ] ] ;
+  rr:predicateObjectMap [ rr:predicate champ-onto:export ; rr:objectMap [ rml:reference "Export" ] ] ;
+  rr:predicateObjectMap [ rr:predicate champ-onto:nationalTrade ; rr:objectMap [ rml:reference "National trade" ] ] ;
+  rr:predicateObjectMap [ rr:predicate champ-onto:certification ; rr:objectMap [ rml:reference "Certification" ] ] ;
+  rr:predicateObjectMap [ rr:predicate champ-onto:yieldFromBoardsInPercentage ; rr:objectMap [ rml:reference "Yield from the boards(%)" ; rr:datatype xsd:integer ] ] ;
+  rr:predicateObjectMap [ rr:predicate champ-onto:wasteThermalUseInPercentage ; rr:objectMap [ rml:reference "% Waste (thermal use)" ; rr:datatype xsd:integer ] ] .
+
+
+<https://schema.champi40ns.eu/ProductMapping_B>
+  rml:logicalSource [
+    rml:source "../input/joineryproduct-B.csv" ;
+    rml:referenceFormulation ql:CSV
+  ];
+  rr:subjectMap [
+    rr:template "https://resource.champi40ns.eu/product/{Label of boards}" ;
+    rr:class champ-onto:Product ;
+    rr:graphMap [ rr:constant <https://data.champi40ns.eu/joinery-product/> ]
+  ];
+  rr:predicateObjectMap [ rr:predicate champ-onto:company ; rr:objectMap [ rml:reference "Company" ] ] ;
+  rr:predicateObjectMap [ rr:predicate champ-onto:dateOfOrder ; rr:objectMap [ rml:reference "Date of order" ] ] ;
+  rr:predicateObjectMap [ rr:predicate champ-onto:dateOfProduction ; rr:objectMap [ rml:reference "Date of production" ] ] ;
+  rr:predicateObjectMap [ rr:predicate champ-onto:dateOfDelivery ; rr:objectMap [ rml:reference "Date of delivery" ] ] ;
+  rr:predicateObjectMap [ rr:predicate champ-onto:customer ; rr:objectMap [ rml:reference "Customer" ] ] ;
+  rr:predicateObjectMap [ rr:predicate champ-onto:woodSpecies ; rr:objectMap [ rml:reference "Wood species" ] ] ;
+  rr:predicateObjectMap [ rr:predicate champ-onto:productType ; rr:objectMap [ rml:reference "Product" ] ] ;
+  rr:predicateObjectMap [ rr:predicate champ-onto:widthInCentimetre ; rr:objectMap [ rml:reference "Width" ; rr:datatype xsd:integer ] ] ;
+  rr:predicateObjectMap [ rr:predicate champ-onto:heightInCentimetre ; rr:objectMap [ rml:reference "Height" ; rr:datatype xsd:integer ] ] ;
+  rr:predicateObjectMap [ rr:predicate champ-onto:depthInCentimetre ; rr:objectMap [ rml:reference "depth" ; rr:datatype xsd:integer ] ] ;
+  rr:predicateObjectMap [ rr:predicate champ-onto:productWeightInKilograms ; rr:objectMap [ rml:reference "product weight" ; rr:datatype xsd:integer ] ] ;
+  rr:predicateObjectMap [ rr:predicate champ-onto:moistureContentInPercentage ; rr:objectMap [ rml:reference "Moisture content" ] ] ;
+  rr:predicateObjectMap [ rr:predicate champ-onto:surfaceCoating ; rr:objectMap [ rml:reference "Surface Coating" ] ] ;
+  rr:predicateObjectMap [ rr:predicate champ-onto:paint ; rr:objectMap [ rml:reference "Paint" ] ] ;
+  rr:predicateObjectMap [ rr:predicate champ-onto:glueType ; rr:objectMap [ rml:reference "Glue typ" ] ] ;
+  rr:predicateObjectMap [ rr:predicate champ-onto:furnitureFittings ; rr:objectMap [ rml:reference "Furniture fittings" ] ] ;
+  rr:predicateObjectMap [ rr:predicate champ-onto:specificCharacteristics ; rr:objectMap [ rml:reference "Specific characteristics" ] ] ;
+  rr:predicateObjectMap [ rr:predicate champ-onto:maintenanceInstructions ; rr:objectMap [ rml:reference "Maintenance instructions" ] ] ;
+  rr:predicateObjectMap [ rr:predicate champ-onto:export ; rr:objectMap [ rml:reference "Export" ] ] ;
+  rr:predicateObjectMap [ rr:predicate champ-onto:nationalTrade ; rr:objectMap [ rml:reference "National trade" ] ] ;
+  rr:predicateObjectMap [ rr:predicate champ-onto:certification ; rr:objectMap [ rml:reference "Certification" ] ] ;
+  rr:predicateObjectMap [ rr:predicate champ-onto:yieldFromBoardsInPercentage ; rr:objectMap [ rml:reference "Yield from the boards(%)" ; rr:datatype xsd:integer ] ] ;
+  rr:predicateObjectMap [ rr:predicate champ-onto:wasteThermalUseInPercentage ; rr:objectMap [ rml:reference "% Waste (thermal use)" ; rr:datatype xsd:integer ] ] .
+
+<https://schema.champi40ns.eu/ProductMapping_C>
+  rml:logicalSource [
+    rml:source "../input/joineryproduct-C.csv" ;
+    rml:referenceFormulation ql:CSV
+  ];
+  rr:subjectMap [
+    rr:template "https://resource.champi40ns.eu/product/{Label of boards}" ;
+    rr:class champ-onto:Product ;
+    rr:graphMap [ rr:constant <https://data.champi40ns.eu/joinery-product/> ]
+  ];
+  rr:predicateObjectMap [ rr:predicate champ-onto:company ; rr:objectMap [ rml:reference "Company" ] ] ;
+  rr:predicateObjectMap [ rr:predicate champ-onto:dateOfOrder ; rr:objectMap [ rml:reference "Date of order" ] ] ;
+  rr:predicateObjectMap [ rr:predicate champ-onto:dateOfProduction ; rr:objectMap [ rml:reference "Date of production" ] ] ;
+  rr:predicateObjectMap [ rr:predicate champ-onto:dateOfDelivery ; rr:objectMap [ rml:reference "Date of delivery" ] ] ;
+  rr:predicateObjectMap [ rr:predicate champ-onto:customer ; rr:objectMap [ rml:reference "Customer" ] ] ;
+  rr:predicateObjectMap [ rr:predicate champ-onto:woodSpecies ; rr:objectMap [ rml:reference "Wood species" ] ] ;
+  rr:predicateObjectMap [ rr:predicate champ-onto:productType ; rr:objectMap [ rml:reference "Product" ] ] ;
+  rr:predicateObjectMap [ rr:predicate champ-onto:widthInCentimetre ; rr:objectMap [ rml:reference "Width" ; rr:datatype xsd:integer ] ] ;
+  rr:predicateObjectMap [ rr:predicate champ-onto:heightInCentimetre ; rr:objectMap [ rml:reference "Height" ; rr:datatype xsd:integer ] ] ;
+  rr:predicateObjectMap [ rr:predicate champ-onto:depthInCentimetre ; rr:objectMap [ rml:reference "depth" ; rr:datatype xsd:integer ] ] ;
+  rr:predicateObjectMap [ rr:predicate champ-onto:productWeightInKilograms ; rr:objectMap [ rml:reference "product weight" ; rr:datatype xsd:integer ] ] ;
+  rr:predicateObjectMap [ rr:predicate champ-onto:moistureContentInPercentage ; rr:objectMap [ rml:reference "Moisture content" ] ] ;
+  rr:predicateObjectMap [ rr:predicate champ-onto:surfaceCoating ; rr:objectMap [ rml:reference "Surface Coating" ] ] ;
+  rr:predicateObjectMap [ rr:predicate champ-onto:paint ; rr:objectMap [ rml:reference "Paint" ] ] ;
+  rr:predicateObjectMap [ rr:predicate champ-onto:glueType ; rr:objectMap [ rml:reference "Glue typ" ] ] ;
+  rr:predicateObjectMap [ rr:predicate champ-onto:furnitureFittings ; rr:objectMap [ rml:reference "Furniture fittings" ] ] ;
+  rr:predicateObjectMap [ rr:predicate champ-onto:specificCharacteristics ; rr:objectMap [ rml:reference "Specific characteristics" ] ] ;
+  rr:predicateObjectMap [ rr:predicate champ-onto:maintenanceInstructions ; rr:objectMap [ rml:reference "Maintenance instructions" ] ] ;
+  rr:predicateObjectMap [ rr:predicate champ-onto:export ; rr:objectMap [ rml:reference "Export" ] ] ;
+  rr:predicateObjectMap [ rr:predicate champ-onto:nationalTrade ; rr:objectMap [ rml:reference "National trade" ] ] ;
+  rr:predicateObjectMap [ rr:predicate champ-onto:certification ; rr:objectMap [ rml:reference "Certification" ] ] ;
+  rr:predicateObjectMap [ rr:predicate champ-onto:yieldFromBoardsInPercentage ; rr:objectMap [ rml:reference "Yield from the boards(%)" ; rr:datatype xsd:integer ] ] ;
+  rr:predicateObjectMap [ rr:predicate champ-onto:wasteThermalUseInPercentage ; rr:objectMap [ rml:reference "% Waste (thermal use)" ; rr:datatype xsd:integer ] ] .
+
+<https://schema.champi40ns.eu/JoineryArrivalAMapping-A>
+  rml:logicalSource [
+    rml:source "../input/joineryarrival-A.csv" ;
+    rml:referenceFormulation ql:CSV
+  ];
+  rr:subjectMap [
+    rr:template "https://resource.champi40ns.eu/Board/{label}" ;
+    rr:class champ-onto:Board ;
+    rr:graphMap [ rr:constant <https://data.champi40ns.eu/joinery-arrival/> ]
+  ];
+  rr:predicateObjectMap [ rr:predicate champ-onto:company ; rr:objectMap [ rml:reference "Company" ] ] ;
+  rr:predicateObjectMap [ rr:predicate champ-onto:seller ; rr:objectMap [ rml:reference "Seller" ] ] ;
+  rr:predicateObjectMap [ rr:predicate champ-onto:orderDate ; rr:objectMap [ rml:reference "Order date" ] ] ;
+  rr:predicateObjectMap [ rr:predicate champ-onto:deliveryNumber ; rr:objectMap [ rml:reference "Delivery number" ; rr:datatype xsd:integer ] ] ;
+  rr:predicateObjectMap [ rr:predicate champ-onto:deliveryDate ; rr:objectMap [ rml:reference "Delivery date" ] ] ;
+  rr:predicateObjectMap [ rr:predicate champ-onto:woodSpecies ; rr:objectMap [ rml:reference "Wood species" ] ] ;
+  rr:predicateObjectMap [ rr:predicate champ-onto:assortment ; rr:objectMap [ rml:reference "Assortment" ] ] ;
+  rr:predicateObjectMap [ rr:predicate champ-onto:lengthInCentimetre ; rr:objectMap [ rml:reference "Length" ; rr:datatype xsd:integer ] ] ;
+  rr:predicateObjectMap [ rr:predicate champ-onto:widthInCentimetre ; rr:objectMap [ rml:reference "Width" ; rr:datatype xsd:integer ] ] ;
+  rr:predicateObjectMap [ rr:predicate champ-onto:thicknessCentimetre ; rr:objectMap [ rml:reference "Thickness" ; rr:datatype xsd:integer ] ] ;
+  rr:predicateObjectMap [ rr:predicate champ-onto:timberInSquareMeter ; rr:objectMap [ rml:reference "Timber square meter" ; rr:datatype xsd:integer ] ] ;
+  rr:predicateObjectMap [ rr:predicate champ-onto:timberVolumeInCubeMeter ; rr:objectMap [ rml:reference "Timber volume" ; rr:datatype xsd:integer ] ] ;
+  rr:predicateObjectMap [ rr:predicate champ-onto:qualityClass ; rr:objectMap [ rml:reference "Quality class" ; rr:datatype xsd:integer ] ] ;
+  rr:predicateObjectMap [ rr:predicate champ-onto:moistureContentInPercentage ; rr:objectMap [ rml:reference "Moisture content" ; rr:datatype xsd:integer ] ] ;
+  rr:predicateObjectMap [ rr:predicate champ-onto:specificCharacteristics ; rr:objectMap [ rml:reference "Specific characteristics" ; rr:datatype xsd:integer ] ] ;
+  rr:predicateObjectMap [ rr:predicate champ-onto:import ; rr:objectMap [ rml:reference "Import" ; rr:datatype xsd:integer ] ] ;
+  rr:predicateObjectMap [ rr:predicate champ-onto:nationalTrade ; rr:objectMap [ rml:reference "National trade" ; rr:datatype xsd:integer ] ] ;
+  rr:predicateObjectMap [ rr:predicate champ-onto:certification ; rr:objectMap [ rml:reference "Certification" ] ] .
+
+
+<https://schema.champi40ns.eu/JoineryArrivalAMapping-B>
+  rml:logicalSource [
+    rml:source "../input/joineryarrival-B.csv" ;
+    rml:referenceFormulation ql:CSV
+  ];
+  rr:subjectMap [
+    rr:template "https://resource.champi40ns.eu/Board/{label}" ;
+    rr:class champ-onto:Board ;
+    rr:graphMap [ rr:constant <https://data.champi40ns.eu/joinery-arrival/> ]
+  ];
+  rr:predicateObjectMap [ rr:predicate champ-onto:company ; rr:objectMap [ rml:reference "Company" ] ] ;
+  rr:predicateObjectMap [ rr:predicate champ-onto:seller ; rr:objectMap [ rml:reference "Seller" ] ] ;
+  rr:predicateObjectMap [ rr:predicate champ-onto:orderDate ; rr:objectMap [ rml:reference "Order date" ] ] ;
+  rr:predicateObjectMap [ rr:predicate champ-onto:deliveryNumber ; rr:objectMap [ rml:reference "Delivery number" ; rr:datatype xsd:integer ] ] ;
+  rr:predicateObjectMap [ rr:predicate champ-onto:deliveryDate ; rr:objectMap [ rml:reference "Delivery date" ] ] ;
+  rr:predicateObjectMap [ rr:predicate champ-onto:woodSpecies ; rr:objectMap [ rml:reference "Wood species" ] ] ;
+  rr:predicateObjectMap [ rr:predicate champ-onto:assortment ; rr:objectMap [ rml:reference "Assortment" ] ] ;
+  rr:predicateObjectMap [ rr:predicate champ-onto:lengthInCentimetre ; rr:objectMap [ rml:reference "Length" ; rr:datatype xsd:integer ] ] ;
+  rr:predicateObjectMap [ rr:predicate champ-onto:widthInCentimetre ; rr:objectMap [ rml:reference "Width" ; rr:datatype xsd:integer ] ] ;
+  rr:predicateObjectMap [ rr:predicate champ-onto:thickness ; rr:objectMap [ rml:reference "Thickness" ; rr:datatype xsd:integer ] ] ;
+  rr:predicateObjectMap [ rr:predicate champ-onto:timberSquareMeter ; rr:objectMap [ rml:reference "Timber square meter" ; rr:datatype xsd:integer ] ] ;
+  rr:predicateObjectMap [ rr:predicate champ-onto:timberVolumeInCubeMeter ; rr:objectMap [ rml:reference "Timber volume" ; rr:datatype xsd:integer ] ] ;
+  rr:predicateObjectMap [ rr:predicate champ-onto:qualityClass ; rr:objectMap [ rml:reference "Quality class" ; rr:datatype xsd:integer ] ] ;
+  rr:predicateObjectMap [ rr:predicate champ-onto:moistureContent ; rr:objectMap [ rml:reference "Moisture content" ; rr:datatype xsd:integer ] ] ;
+  rr:predicateObjectMap [ rr:predicate champ-onto:specificCharacteristics ; rr:objectMap [ rml:reference "Specific characteristics" ; rr:datatype xsd:integer ] ] ;
+  rr:predicateObjectMap [ rr:predicate champ-onto:import ; rr:objectMap [ rml:reference "Import" ; rr:datatype xsd:integer ] ] ;
+  rr:predicateObjectMap [ rr:predicate champ-onto:nationalTrade ; rr:objectMap [ rml:reference "National trade" ; rr:datatype xsd:integer ] ] ;
+  rr:predicateObjectMap [ rr:predicate champ-onto:certification ; rr:objectMap [ rml:reference "Certification" ] ] .
+
+
+<https://schema.champi40ns.eu/JoineryArrivalAMapping-C>
+  rml:logicalSource [
+    rml:source "../input/joineryarrival-C.csv" ;
+    rml:referenceFormulation ql:CSV
+  ];
+  rr:subjectMap [
+    rr:template "https://resource.champi40ns.eu/Board/{label}" ;
+    rr:class champ-onto:Board ;
+    rr:graphMap [ rr:constant <https://data.champi40ns.eu/joinery-arrival/> ]
+  ];
+  rr:predicateObjectMap [ rr:predicate champ-onto:company ; rr:objectMap [ rml:reference "Company" ] ] ;
+  rr:predicateObjectMap [ rr:predicate champ-onto:seller ; rr:objectMap [ rml:reference "Seller" ] ] ;
+  rr:predicateObjectMap [ rr:predicate champ-onto:orderDate ; rr:objectMap [ rml:reference "Order date" ] ] ;
+  rr:predicateObjectMap [ rr:predicate champ-onto:deliveryNumber ; rr:objectMap [ rml:reference "Delivery number" ; rr:datatype xsd:integer ] ] ;
+  rr:predicateObjectMap [ rr:predicate champ-onto:deliveryDate ; rr:objectMap [ rml:reference "Delivery date" ] ] ;
+  rr:predicateObjectMap [ rr:predicate champ-onto:woodSpecies ; rr:objectMap [ rml:reference "Wood species" ] ] ;
+  rr:predicateObjectMap [ rr:predicate champ-onto:assortment ; rr:objectMap [ rml:reference "Assortment" ] ] ;
+  rr:predicateObjectMap [ rr:predicate champ-onto:lengthInCentimetre ; rr:objectMap [ rml:reference "Length" ; rr:datatype xsd:integer ] ] ;
+  rr:predicateObjectMap [ rr:predicate champ-onto:widthInCentimetre ; rr:objectMap [ rml:reference "Width" ; rr:datatype xsd:integer ] ] ;
+  rr:predicateObjectMap [ rr:predicate champ-onto:thicknessInCentimetre ; rr:objectMap [ rml:reference "Thickness" ; rr:datatype xsd:integer ] ] ;
+  rr:predicateObjectMap [ rr:predicate champ-onto:timberSquareMeter ; rr:objectMap [ rml:reference "Timber square meter" ; rr:datatype xsd:integer ] ] ;
+  rr:predicateObjectMap [ rr:predicate champ-onto:timberVolumeInCubeMeter ; rr:objectMap [ rml:reference "Timber volume" ; rr:datatype xsd:integer ] ] ;
+  rr:predicateObjectMap [ rr:predicate champ-onto:qualityClass ; rr:objectMap [ rml:reference "Quality class" ; rr:datatype xsd:integer ] ] ;
+  rr:predicateObjectMap [ rr:predicate champ-onto:moistureContentInPercentage ; rr:objectMap [ rml:reference "Moisture content" ; rr:datatype xsd:integer ] ] ;
+  rr:predicateObjectMap [ rr:predicate champ-onto:specificCharacteristics ; rr:objectMap [ rml:reference "Specific characteristics" ; rr:datatype xsd:integer ] ] ;
+  rr:predicateObjectMap [ rr:predicate champ-onto:import ; rr:objectMap [ rml:reference "Import" ; rr:datatype xsd:integer ] ] ;
+  rr:predicateObjectMap [ rr:predicate champ-onto:nationalTrade ; rr:objectMap [ rml:reference "National trade" ; rr:datatype xsd:integer ] ] ;
+  rr:predicateObjectMap [ rr:predicate champ-onto:certification ; rr:objectMap [ rml:reference "Certification" ] ] .
+
+
+<https://schema.champi40ns.eu/SawmillArrivalMapping>
+  rml:logicalSource [
+    rml:source "../input/sawmill-arrival.csv" ;
+    rml:referenceFormulation ql:CSV
+  ];
+  rr:subjectMap [
+    rr:template "https://resource.champi40ns.eu/Log/{label}" ;
+    rr:class champ-onto:Log ;
+    rr:graphMap [ rr:constant <https://data.champi40ns.eu/sawmill-arrival/> ]
+  ];
+  rr:predicateObjectMap [ rr:predicate champ-onto:company ; rr:objectMap [ rml:reference "Company" ] ] ;
+  rr:predicateObjectMap [ rr:predicate champ-onto:seller ; rr:objectMap [ rml:reference "Seller" ] ] ;
+  rr:predicateObjectMap [ rr:predicate champ-onto:deliveryNumber ; rr:objectMap [ rml:reference "Delivery number" ; rr:datatype xsd:integer ] ] ;
+  rr:predicateObjectMap [ rr:predicate champ-onto:deliveryDate ; rr:objectMap [ rml:reference "Delivery date" ] ] ;
+  rr:predicateObjectMap [ rr:predicate champ-onto:woodSpecies ; rr:objectMap [ rml:reference "Wood species" ] ] ;
+  rr:predicateObjectMap [ rr:predicate champ-onto:lumberQuantity ; rr:objectMap [ rml:reference "Lumber quantity " ; rr:datatype xsd:float ] ] ;
+  rr:predicateObjectMap [ rr:predicate champ-onto:truncDiameterInCentimeters ; rr:objectMap [ rml:reference "Trunc diameter" ; rr:datatype xsd:integer ] ] ;
+  rr:predicateObjectMap [ rr:predicate champ-onto:assortment ; rr:objectMap [ rml:reference "Assortment" ; rr:datatype xsd:integer ] ] ;
+  rr:predicateObjectMap [ rr:predicate champ-onto:sizeClass ; rr:objectMap [ rml:reference "Size class" ] ] ;
+  rr:predicateObjectMap [ rr:predicate champ-onto:lengthInMeters ; rr:objectMap [ rml:reference "Length (m)" ] ] ;
+  rr:predicateObjectMap [ rr:predicate champ-onto:qualityClass ; rr:objectMap [ rml:reference "Quality class" ; rr:datatype xsd:integer ] ] ;
+  rr:predicateObjectMap [ rr:predicate champ-onto:import ; rr:objectMap [ rml:reference "Import" ] ] ;
+  rr:predicateObjectMap [ rr:predicate champ-onto:nationalTrade ; rr:objectMap [ rml:reference "National Trade" ] ] ;
+  rr:predicateObjectMap [ rr:predicate champ-onto:certification ; rr:objectMap [ rml:reference "Certification" ] ] ;
+  rr:predicateObjectMap [ rr:predicate champ-onto:storagePlace ; rr:objectMap [ rml:reference "Storage Place" ] ] .
+
+<https://schema.champi40ns.eu/SawmillOutputMapping>
+  rml:logicalSource [
+    rml:source "../input/sawmill-output.csv" ;
+    rml:referenceFormulation ql:CSV
+  ];
+  rr:subjectMap [
+    rr:template "https://resource.champi40ns.eu/Board/{label}" ;
+    rr:class champ-onto:Board ;
+    rr:graphMap [ rr:constant <https://data.champi40ns.eu/sawmill-output/> ]
+  ];
+  rr:predicateObjectMap [ rr:predicate champ-onto:company ; rr:objectMap [ rml:reference "Company" ] ] ;
+  rr:predicateObjectMap [ rr:predicate champ-onto:productionDate ; rr:objectMap [ rml:reference "Production date" ] ] ;
+  rr:predicateObjectMap [ rr:predicate champ-onto:dateOfSale ; rr:objectMap [ rml:reference "Date of sale" ] ] ;
+  rr:predicateObjectMap [ rr:predicate champ-onto:customer ; rr:objectMap [ rml:reference "Customer" ] ] ;
+  rr:predicateObjectMap [ rr:predicate champ-onto:woodSpecies ; rr:objectMap [ rml:reference "Wood species" ] ] ;
+  rr:predicateObjectMap [ rr:predicate champ-onto:assortment ; rr:objectMap [ rml:reference "Assortment" ] ] ;
+  rr:predicateObjectMap [ rr:predicate champ-onto:length ; rr:objectMap [ rml:reference "Length" ; rr:datatype xsd:integer ] ] ;
+  rr:predicateObjectMap [ rr:predicate champ-onto:width ; rr:objectMap [ rml:reference "Width" ; rr:datatype xsd:integer ] ] ;
+  rr:predicateObjectMap [ rr:predicate champ-onto:thickness ; rr:objectMap [ rml:reference "Thickness" ; rr:datatype xsd:integer ] ] ;
+  rr:predicateObjectMap [ rr:predicate champ-onto:timberSquareMeter ; rr:objectMap [ rml:reference "Timber square meter" ; rr:datatype xsd:integer ] ] ;
+  rr:predicateObjectMap [ rr:predicate champ-onto:timberVolume ; rr:objectMap [ rml:reference "Timber volume" ; rr:datatype xsd:integer ] ] ;
+  rr:predicateObjectMap [ rr:predicate champ-onto:timberWeight ; rr:objectMap [ rml:reference "Timber weight" ; rr:datatype xsd:integer ] ] ;
+  rr:predicateObjectMap [ rr:predicate champ-onto:qualityClass ; rr:objectMap [ rml:reference "Quality class" ; rr:datatype xsd:integer ] ] ;
+  rr:predicateObjectMap [ rr:predicate champ-onto:moistureContent ; rr:objectMap [ rml:reference "Moisture content" ; rr:datatype xsd:integer ] ] ;
+  rr:predicateObjectMap [ rr:predicate champ-onto:specificCharacteristics ; rr:objectMap [ rml:reference "Specific characteristics" ; rr:datatype xsd:integer ] ] ;
+  rr:predicateObjectMap [ rr:predicate champ-onto:export ; rr:objectMap [ rml:reference "Export" ; rr:datatype xsd:integer ] ] ;
+  rr:predicateObjectMap [ rr:predicate champ-onto:nationalTrade ; rr:objectMap [ rml:reference "National trade" ] ] ;
+  rr:predicateObjectMap [ rr:predicate champ-onto:certification ; rr:objectMap [ rml:reference "Certification" ] ] ;
+  rr:predicateObjectMap [ rr:predicate champ-onto:storagePlace ; rr:objectMap [ rml:reference "Storage Place" ] ] ;
+  rr:predicateObjectMap [ rr:predicate champ-onto:wasteFromTrunkInPercentage ; rr:objectMap [ rml:reference "Waste from the trunk (%)" ] ] .
+
+<https://schema.champi40ns.eu/TransportMapping>
+  rml:logicalSource [
+    rml:source "../input/transport.csv" ;
+    rml:referenceFormulation ql:CSV
+  ];
+  rr:subjectMap [
+    rr:template "https://resource.champi40ns.eu/Transport/{ID}" ;
+    rr:class champ-onto:Transport ;
+    rr:graphMap [ rr:constant <https://data.champi40ns.eu/transport/> ]
+  ];
+  rr:predicateObjectMap [ rr:predicate champ-onto:id ; rr:objectMap [ rml:reference "ID" ] ] ;
+  rr:predicateObjectMap [ rr:predicate champ-onto:cargoVehicle ; rr:objectMap [ rml:reference "Cargo vehicle" ] ] ;
+  rr:predicateObjectMap [ rr:predicate champ-onto:deliveryLocation ; rr:objectMap [ rml:reference "Delivery location" ] ] ;
+  rr:predicateObjectMap [ rr:predicate champ-onto:deliveryNo ; rr:objectMap [ rml:reference "Delivery number" ; rr:datatype xsd:integer ] ] ;
+  rr:predicateObjectMap [ rr:predicate champ-onto:freightDepartureDate ; rr:objectMap [ rml:reference "Freight departure date" ] ] ;
+  rr:predicateObjectMap [ rr:predicate champ-onto:company ; rr:objectMap [ rml:reference "Name company" ] ] ;
+  rr:predicateObjectMap [ rr:predicate champ-onto:loadingPointGPSLat ; rr:objectMap [ rml:reference "Loading point (GPS lat)" ; rr:datatype xsd:float ] ] ;
+  rr:predicateObjectMap [ rr:predicate champ-onto:loadingPointGPSLong ; rr:objectMap [ rml:reference "Loading point (GPS long)" ; rr:datatype xsd:float ] ] ;
+  rr:predicateObjectMap [ rr:predicate champ-onto:lengthInMeters ; rr:objectMap [ rml:reference "Length" ; rr:datatype xsd:integer ] ] ;
+  rr:predicateObjectMap [ rr:predicate champ-onto:import ; rr:objectMap [ rml:reference "Import" ] ] ;
+  rr:predicateObjectMap [ rr:predicate champ-onto:export ; rr:objectMap [ rml:reference "Export"  ] ] ;
+  rr:predicateObjectMap [ rr:predicate champ-onto:nationalTrade ; rr:objectMap [ rml:reference "National Trade" ] ] ;
+  rr:predicateObjectMap [ rr:predicate champ-onto:certification ; rr:objectMap [ rml:reference "Certification" ] ] ;
+  rr:predicateObjectMap [ rr:predicate champ-onto:woodSpecies ; rr:objectMap [ rml:reference "Tree species" ] ] ;
+  rr:predicateObjectMap [ rr:predicate champ-onto:assortment ; rr:objectMap [ rml:reference "Assortment" ] ] ;
+  rr:predicateObjectMap [ rr:predicate champ-onto:lumberQuantity ; rr:objectMap [ rml:reference "Lumber quantity" ; rr:datatype xsd:float ] ] ;
+  rr:predicateObjectMap [ rr:predicate champ-onto:lengthInMeters ; rr:objectMap [ rml:reference "Length" ; rr:datatype xsd:integer ] ] .

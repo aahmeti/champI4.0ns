@@ -1,0 +1,318 @@
+@prefix champ-onto: <https://schema.champi40ns.eu#> .
+@prefix champ-inst: <https://resource.champi40ns.eu/> .
+@prefix champ-taxo: <https://taxonomy.champi40ns.eu/> .
+@prefix dwc: <http://rs.tdwg.org/dwc/terms/> .
+@prefix geo: <http://www.opengis.net/ont/geosparql#> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rsx: <http://rdf4j.org/shacl-extensions#> .
+
+champ-inst:Forest1Shape
+    a sh:NodeShape ;
+    sh:targetClass champ-onto:Log ;
+    sh:targetClass champ-onto:RawMaterial ;
+    sh:property [
+        sh:path champ-onto:gpsLat ;
+        sh:minCount 1 ; 
+        sh:maxCount 1 ;
+    ] ;
+    sh:property [
+        sh:path champ-onto:gpsLong ;
+        sh:minCount 1 ; 
+        sh:maxCount 1 ;
+    ] ; 
+    sh:property [
+        sh:path champ-onto:assortment ;
+        sh:minCount 1 ; 
+        sh:maxCount 1 ;
+    ] ;
+    sh:property [
+        sh:path champ-onto:certification ;
+        sh:minCount 1 ; 
+        sh:maxCount 1 ;
+    ] ;
+    sh:property [
+        sh:path champ-onto:company ;
+        sh:minCount 1 ; 
+        sh:maxCount 1 ;
+    ] ;
+    sh:property [
+        sh:path champ-onto:country ;
+        sh:minCount 1 ; 
+        sh:maxCount 1 ;
+    ] ;
+    sh:property [
+        sh:path champ-onto:customer ;
+        sh:minCount 1 ; 
+        sh:maxCount 1 ;
+    ] ;
+    sh:property [
+        sh:path champ-onto:export ;
+        sh:minCount 1 ; 
+        sh:maxCount 1 ;
+    ] ;
+    sh:property [
+        sh:path champ-onto:federalState ;
+        sh:minCount 1 ; 
+        sh:maxCount 1 ;
+    ] ;
+    sh:property [
+        sh:path champ-onto:harvestingDate ;
+        sh:minCount 1 ; 
+        sh:maxCount 1 ;
+    ] ;
+    sh:property [
+        sh:path champ-onto:hasProvenance ;
+        sh:minCount 1 ; 
+        sh:maxCount 1 ;
+    ] ;
+    sh:property [
+        sh:path champ-onto:label ;
+        sh:minCount 1 ; 
+        sh:maxCount 1 ;
+    ] ;
+    sh:property [
+        sh:path champ-onto:lengthInMeters ;
+        sh:minCount 1 ; 
+        sh:maxCount 1 ;
+    ] ;
+    sh:property [
+        sh:path champ-onto:loadingPointLat ;
+        sh:minCount 1 ; 
+        sh:maxCount 1 ;
+    ] ;
+    sh:property [
+        sh:path champ-onto:loadingPointLong ;
+        sh:minCount 1 ; 
+        sh:maxCount 1 ;
+    ] ;
+    sh:property [
+        sh:path champ-onto:logHarvestedInForestNo ;
+        sh:minCount 1 ; 
+        sh:maxCount 1 ;
+    ] ;
+    sh:property [
+        sh:path champ-onto:logNo ;
+        sh:minCount 1 ; 
+        sh:maxCount 1 ;
+    ] ;
+    sh:property [
+        sh:path champ-onto:lumberQuantity ;
+        sh:minCount 1 ; 
+        sh:maxCount 1 ;
+    ] ;
+    sh:property [
+        sh:path champ-onto:moonPhase ;
+        sh:minCount 1 ; 
+        sh:maxCount 1 ;
+    ] ;
+    sh:property [
+        sh:path champ-onto:municipality ;
+        sh:minCount 1 ; 
+        sh:maxCount 1 ;
+    ] ;
+    sh:property [
+        sh:path champ-onto:nationalTrade ;
+        sh:minCount 1 ; 
+        sh:maxCount 1 ;
+    ] ;
+    sh:property [
+        sh:path champ-onto:qualityClass ;
+        sh:minCount 1 ; 
+        sh:maxCount 1 ;
+    ] ;
+    sh:property [
+        sh:path champ-onto:side ;
+        sh:minCount 1 ; 
+        sh:maxCount 1 ;
+    ] ;
+    sh:property [
+        sh:path champ-onto:sizeClass ;
+        sh:minCount 1 ; 
+        sh:maxCount 1 ;
+    ] ;
+    sh:property [
+        sh:path champ-onto:truncDiameterInCentimeters ;
+        sh:minCount 1 ; 
+        sh:maxCount 1 ;
+    ] ;
+    sh:property [
+        sh:path champ-onto:woodSpecies ;
+        sh:minCount 1 ; 
+        sh:maxCount 1 ;
+    ] .
+    [
+      a rsx:DataAndShapesGraphLink;
+      rsx:shapesGraph <urn:shapes-forest>;
+            rsx:dataGraph <https://data.champi40ns.eu/forest/> ;
+    ] .
+
+
+
+champ-inst:Forest2aShape
+    a sh:NodeShape ;
+    sh:targetClass champ-onto:Log ; 
+
+    sh:property [
+        sh:path champ-onto:gpsLat ;
+        sh:datatype xsd:decimal ;
+        sh:message "GPS latitude must be a decimal value." ;
+    ] ;
+
+    sh:property [
+        sh:path champ-onto:gpsLong ;
+        sh:datatype xsd:decimal ;
+        sh:message "GPS longitude must be a decimal value." ;
+    ] ;
+
+    sh:property [
+        sh:path champ-onto:GPS_coordinate ;
+        sh:datatype geo:wktLiteral ;
+        sh:message "GPS_coordinate must be a WKT literal, e.g., 'POINT(lon lat)'^^geo:wktLiteral." ;
+    ] .
+
+champ-inst:Forest2bShape
+    a sh:NodeShape ;
+    sh:targetClass champ-onto:Log ; 
+
+    sh:property [
+        sh:path champ-onto:loadingPointLat ;
+        sh:datatype xsd:decimal ;
+        sh:message "Loading point latitude must be a decimal value." ;
+    ] ;
+
+    sh:property [
+        sh:path champ-onto:loadingPointLong ;
+        sh:datatype xsd:decimal ;
+        sh:message "Loading point longitude must be a decimal value." ;
+    ] ;
+
+    sh:property [
+        sh:path champ-onto:loading_point ;
+        sh:datatype geo:wktLiteral ;
+        sh:message "Loading_point must be a WKT literal, e.g., 'POINT(lon lat)'^^geo:wktLiteral." ;
+    ] .
+
+
+champ-inst:Forest3Shape
+    a sh:NodeShape ;
+    sh:targetClass champ-onto:Product, champ-onto:Log, champ-onto:Board ;
+    sh:property [
+        sh:path champ-onto:export ;
+        sh:datatype xsd:boolean 
+    ] ;
+    sh:property [
+        sh:path champ-onto:nationalTrade ;
+        sh:datatype xsd:boolean 
+    ] ;
+    sh:property [
+        sh:path champ-onto:import ;
+        sh:datatype xsd:boolean 
+    ] ;
+    sh:property [
+        sh:path champ-onto:paint ;
+        sh:datatype xsd:boolean ;
+    ] .
+
+champ-inst:Forest4aShape
+    a sh:NodeShape ;
+    sh:targetClass champ-onto:Log;
+    sh:property [
+        sh:path champ-onto:wood_species_latin ;
+        sh:nodeKind sh:IRI ;
+        sh:message "wood_species_latin must point to an IRI, not a literal." ;
+    ] ; 
+
+     a sh:NodeShape ;
+    sh:targetClass champ-onto:Log;
+    sh:property [
+        sh:path (champ-onto:wood_species_latin dwc:scientificName) ;
+        sh:minCount 1; 
+        sh:maxCount 1;
+        sh:message "There should be a scientific name!" ;
+    ] .
+
+champ-inst:Forest6aShape
+    a sh:NodeShape ;
+    sh:targetClass champ-onto:Log;
+    sh:property [
+        sh:path champ-onto:assortment ;
+        sh:in ("Wertholz" "Bloch") ;
+        sh:minCount 1 ; 
+        sh:maxCount 1 ; 
+        sh:message "The value should be Wertholz, Bloch!" ;
+    ] .
+
+champ-inst:Forest6bShape
+    a sh:NodeShape ;
+    sh:targetClass champ-onto:Board;
+    sh:property [
+        sh:path champ-onto:assortment ;
+        sh:hasValue "Sawn Board" ;
+        sh:minCount 1 ; 
+        sh:maxCount 1 ; 
+        sh:message "The value should be Sawn board!" ;
+    ] .
+
+champ-inst:Forest7Shape
+    a sh:NodeShape ;
+    sh:targetClass champ-onto:Log;
+    sh:property [
+        sh:path champ-onto:deliveryDate ;
+        sh:minCount 1 ; 
+        sh:maxCount 1 ; 
+        sh:datatype xsd:boolean ;
+        sh:message "Delivery date should be xsd:date" ;
+    ] ; 
+    sh:property [
+        sh:path champ-onto:harvestingDate ;
+        sh:minCount 1 ; 
+        sh:maxCount 1 ; 
+        sh:datatype xsd:boolean ;
+        sh:message "Harvesting date should be xsd:date" ;
+    ] .
+
+champ-inst:Forest8Shape
+    a sh:NodeShape ;
+    sh:targetClass champ-onto:Log ;
+
+    sh:sparql [
+        a sh:SPARQLConstraint ;
+        sh:prefixes [
+            sh:declare [
+                sh:prefix "champ-onto" ;
+                sh:namespace "https://schema.champi40ns.eu#" ;
+            ] ;
+            sh:declare [
+                sh:prefix "champ-inst" ;
+                sh:namespace "https://resource.champi40ns.eu/" ;
+            ] ;
+            sh:declare [
+                sh:prefix "xsd" ;
+                sh:namespace "http://www.w3.org/2001/XMLSchema#" ;
+            ] ;
+        ] ;
+        sh:message "Label must be the concatenation of forestNo and logNo." ;
+        sh:select """
+            SELECT ?this
+            WHERE {
+                ?this champ-onto:label ?label .
+                ?this champ-onto:logHarvestedInForestNo ?forest .
+                ?this champ-onto:logNo ?log .
+
+                BIND(CONCAT("F", ?forest, "L", ?log) AS ?expectedLabel)
+
+                FILTER(?label != ?expectedLabel)
+            }
+        """ ;
+    ] .
+
+champ-inst:Forest9Shape
+    a sh:NodeShape ;
+    sh:targetClass champ-onto:Log;
+    sh:property [
+        sh:path champ-onto:qualityClass ;
+        sh:in ("A" "B" "C") ;
+	        sh:message "The value should be either A, B or C!" ;
+    ] .
+

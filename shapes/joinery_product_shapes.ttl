@@ -1,0 +1,150 @@
+@prefix champ-onto: <https://schema.champi40ns.eu#> .
+@prefix champ-inst: <https://resource.champi40ns.eu/> .
+@prefix champ-taxo: <https://taxonomy.champi40ns.eu/> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rsx: <http://rdf4j.org/shacl-extensions#> .
+
+champ-inst:Product1Shape
+    a sh:NodeShape ;
+    sh:targetClass champ-onto:Product ;
+
+    sh:property [
+        sh:path champ-onto:yieldFromBoardsInPercentage  ;
+        sh:minCount 1 ; 
+        sh:maxCount 1 ;
+    ] ;
+    sh:property [
+        sh:path champ-onto:widthInCentimetre  ;
+        sh:minCount 1 ; 
+        sh:maxCount 1 ;
+    ] ;
+    sh:property [
+        sh:path champ-onto:productWeightInKilograms  ;
+        sh:minCount 1 ; 
+        sh:maxCount 1 ;
+    ] ;
+    sh:property [
+        sh:path champ-onto:surfaceCoating  ;
+        sh:minCount 1 ; 
+        sh:maxCount 1 ;
+    ] ;
+    sh:property [
+        sh:path champ-onto:specificCharacteristics  ;
+        sh:minCount 1 ; 
+        sh:maxCount 1 ;
+    ] ;    
+    sh:property [
+        sh:path champ-onto:productType  ;
+        sh:minCount 1 ; 
+        sh:maxCount 1 ;
+    ] ;    
+    sh:property [
+        sh:path champ-onto:wasteThermalUseInPercentage  ;
+        sh:minCount 1 ; 
+        sh:maxCount 1 ;
+    ] ;    
+    sh:property [
+        sh:path champ-onto:paint  ;
+        sh:minCount 1 ; 
+        sh:maxCount 1 ;
+    ] ;
+    sh:property [
+        sh:path champ-onto:nationalTrade  ;
+        sh:minCount 1 ; 
+        sh:maxCount 1 ;
+    ] ; 
+    sh:property [
+        sh:path champ-onto:moistureContentInPercentage  ;
+        sh:maxCount 1 ;
+    ] ;   
+    sh:property [
+        sh:path champ-onto:maintenanceInstructions  ;
+        sh:minCount 1 ; 
+        sh:maxCount 1 ;
+    ] ;       
+    sh:property [
+        sh:path champ-onto:glueType  ;
+        sh:maxCount 1 ;
+    ] ;     
+    sh:property [
+        sh:path champ-onto:dateOfProduction  ;
+        sh:minCount 1 ; 
+        sh:maxCount 1 ;
+    ] ;
+    sh:property [
+        sh:path champ-onto:dateOfOrder  ;
+        sh:minCount 1 ; 
+        sh:maxCount 1 ;
+    ] ;
+    sh:property [
+        sh:path champ-onto:dateOfDelivery  ;
+        sh:minCount 1 ; 
+        sh:maxCount 1 ;
+    ] ;
+    sh:property [
+        sh:path champ-onto:customer  ;
+        sh:minCount 1 ; 
+        sh:maxCount 1 ;
+    ]
+     .
+    [
+      a rsx:DataAndShapesGraphLink;
+      rsx:shapesGraph <urn:shapes-joinery>;
+            rsx:dataGraph <https://data.champi40ns.eu/joinery-product/> ;
+    ] .
+
+champ-inst:Product2Shape
+    a sh:NodeShape ;
+    sh:targetClass champ-onto:Product ;
+
+    sh:property [
+        sh:path champ-onto:productType  ;
+        sh:in ("Sideboard" "Chair" "Table")
+    ] .
+
+champ-inst:Product3Shape
+    a sh:NodeShape ;
+    sh:targetClass champ-onto:Product ;
+
+    sh:property [
+        sh:path champ-onto:certification  ;
+        sh:datatype xsd:boolean ;
+        sh:message "Certification should be boolean!"
+    ] ;
+    sh:property [
+        sh:path champ-onto:export  ;
+        sh:datatype xsd:boolean ;
+        sh:message "Export should be boolean!"
+    ] ;
+    sh:property [
+        sh:path champ-onto:nationalTrade  ;
+        sh:datatype xsd:boolean ;
+        sh:message "National trade should be boolean!"
+    ] ;
+    sh:property [
+        sh:path champ-onto:paint  ;
+        sh:datatype xsd:boolean ;
+        sh:message "Paint should be boolean!"
+    ] .
+
+champ-inst:Product4Shape
+    a sh:NodeShape ;
+    sh:targetClass champ-onto:Product ;
+
+    sh:property [
+        sh:path [ sh:inversePath champ-onto:isUsedToProduce ] ;
+        sh:class champ-onto:Board ;
+        sh:message "The domain should be board!"
+    ] .
+
+
+champ-inst:Product5Shape
+    a sh:NodeShape ;
+    sh:targetClass champ-onto:Product ;
+
+    sh:property [
+        sh:path [ sh:inversePath champ-onto:isUsedToProduce ] ;
+        sh:minCount 1;
+        sh:message "A product should have been made by a multiple boards!"
+    ] .

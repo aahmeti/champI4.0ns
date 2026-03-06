@@ -1,0 +1,12 @@
+Label of boards,Company,Date of order,Date of production,Date of delivery,Customer,Wood species,Product,Width,Height,depth,product weight,Moisture content,Surface Coating,Paint,Glue typ,Furniture fittings,Specific characteristics,Maintenance instructions,Export,National trade,Certification,Yield from the boards(%),% Waste (thermal use)
+F1L966B1,Joinery C,4/8/24 0:00,5/13/24 0:00,5/20/24 0:00,Customer1,fir,Chair,45,84,40,10,,Natural oil,no,,wood,,Only clean the surfaces with a slightly damp or dry cloth,no,yes,no,60,40
+F1L966B2-F1L607B1,Joinery C,5/6/24 0:00,6/10/24 0:00,6/17/24 0:00,Customer2,fir,Chair,45,84,40,10,,Natural oil,no,,wood,,Only clean the surfaces with a slightly damp or dry cloth,no,yes,no,60,40
+F1L966B3,Joinery C,5/10/24 0:00,6/14/24 0:00,6/21/24 0:00,Customer3,fir,Chair,45,84,40,10,,Natural oil,no,,wood,,Only clean the surfaces with a slightly damp or dry cloth,no,yes,no,60,40
+F1L966B4-F1L607B2,Joinery C,7/12/24 0:00,8/16/24 0:00,8/23/24 0:00,Customer4,fir,Chair,45,84,40,10,,Natural oil,no,,wood,,Only clean the surfaces with a slightly damp or dry cloth,no,yes,no,60,40
+F1L966B5-F1L607B3,Joinery C,8/2/24 0:00,9/6/24 0:00,9/13/24 0:00,Customer5,fir,Chair,45,84,40,10,,Natural oil,no,,wood,,Only clean the surfaces with a slightly damp or dry cloth,no,yes,no,60,40
+F1L966B6,Joinery C,8/9/24 0:00,9/13/24 0:00,9/20/24 0:00,Customer6,fir,Chair,45,84,40,10,,Natural oil,no,,wood,,Only clean the surfaces with a slightly damp or dry cloth,no,yes,no,60,40
+F1L966B7-F1L607B4,Joinery C,9/2/24 0:00,10/7/24 0:00,10/14/24 0:00,Customer7,fir,Chair,45,84,40,10,,Natural oil,no,,wood,,Only clean the surfaces with a slightly damp or dry cloth,no,yes,no,60,40
+F1L966B8-F1L1032B1,Joinery C,10/1/24 0:00,11/5/24 0:00,11/12/24 0:00,Customer8,fir,Chair,45,84,40,10,,Natural oil,no,,wood,,Only clean the surfaces with a slightly damp or dry cloth,no,yes,no,60,40
+F1L1240B1,Joinery C,10/7/24 0:00,11/11/24 0:00,11/18/24 0:00,Customer9,fir,Chair,45,84,40,10,,Natural oil,no,,wood,,Only clean the surfaces with a slightly damp or dry cloth,no,yes,no,60,40
+F1L1240B2,Joinery C,10/11/24 0:00,11/15/24 0:00,11/22/24 0:00,Customer10,fir,Chair,45,84,40,10,,Natural oil,no,,wood,,Only clean the surfaces with a slightly damp or dry cloth,no,yes,no,60,40
+,Joinery C,10/28/24 0:00,12/2/24 0:00,12/9/24 0:00,Customer11,fir,Chair,45,84,40,10,,Natural oil,no,,wood,,Only clean the surfaces with a slightly damp or dry cloth,no,yes,no,60,40

@@ -1,0 +1,113 @@
+@prefix champ-onto: <https://schema.champi40ns.eu#> .
+@prefix champ-inst: <https://resource.champi40ns.eu/> .
+@prefix champ-taxo: <https://taxonomy.champi40ns.eu/> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rsx: <http://rdf4j.org/shacl-extensions#> .
+
+champ-inst:SawmillOutputShape
+    a sh:NodeShape ;
+    sh:targetClass champ-onto:Board ;
+    sh:targetClass champ-onto:Material ;
+
+    sh:property [
+        sh:path champ-onto:assortment ;
+        sh:minCount 1 ; 
+        sh:maxCount 1 ;
+    ] ;
+    sh:property [
+        sh:path champ-onto:boardNo ;
+        sh:minCount 1 ; 
+        sh:maxCount 1 ;
+    ] ;
+    sh:property [
+        sh:path champ-onto:certification ;
+        sh:minCount 1 ; 
+        sh:maxCount 1 ;
+    ] ;
+    sh:property [
+        sh:path champ-onto:company ;
+        sh:minCount 1 ; 
+        sh:maxCount 1 ;
+    ] ;
+    sh:property [
+        sh:path champ-onto:customer ;
+        sh:minCount 1 ; 
+        sh:maxCount 1 ;
+    ] ;
+    sh:property [
+        sh:path champ-onto:export ;
+        sh:minCount 1 ; 
+        sh:maxCount 1 ;
+    ] ;
+    sh:property [
+        sh:path champ-onto:hasProvenance ;
+        sh:minCount 1 ; 
+        sh:maxCount 1 ;
+    ] ;
+    sh:property [
+        sh:path champ-onto:label ;
+        sh:minCount 1 ; 
+        sh:maxCount 1 ;
+    ] ;
+    sh:property [
+        sh:path champ-onto:length ;
+        sh:minCount 1 ; 
+        sh:maxCount 1 ;
+    ] ;
+    sh:property [
+        sh:path champ-onto:moistureContent ;
+        sh:minCount 1 ; 
+        sh:maxCount 1 ;
+    ] ;
+    sh:property [
+        sh:path champ-onto:qualityClass ;
+        sh:minCount 1 ; 
+        sh:maxCount 1 ;
+    ] ;
+    sh:property [
+        sh:path champ-onto:nationalTrade ;
+        sh:minCount 1 ; 
+        sh:maxCount 1 ;
+    ] ;
+    sh:property [
+        sh:path champ-onto:productionDate ;
+        sh:minCount 1 ; 
+        sh:maxCount 1 ;
+    ] ;
+    sh:property [
+        sh:path champ-onto:storagePlace ;
+        sh:minCount 1 ; 
+        sh:maxCount 1 ;
+    ] ;
+    sh:property [
+        sh:path champ-onto:thickness ;
+        sh:minCount 1 ; 
+        sh:maxCount 1 ;
+    ] ;
+    sh:property [
+        sh:path champ-onto:timberSquareMeter ;
+        sh:minCount 1 ; 
+        sh:maxCount 1 ;
+    ] ;
+    sh:property [
+        sh:path champ-onto:timberVolume ;
+        sh:minCount 1 ; 
+        sh:maxCount 1 ;
+    ] ;
+    sh:property [
+        sh:path champ-onto:wasteFromTrunkInPercentage ;
+        sh:minCount 1 ; 
+        sh:maxCount 1 ;
+    ] ;
+    sh:property [
+        sh:path champ-onto:width ;
+        sh:minCount 1 ; 
+        sh:maxCount 1 ;
+    ]
+     .
+    [
+      a rsx:DataAndShapesGraphLink;
+      rsx:shapesGraph <urn:shapes-sawmill>;
+            rsx:dataGraph <https://data.champi40ns.eu/sawmill-output/> ;
+    ] .

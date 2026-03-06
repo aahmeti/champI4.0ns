@@ -1,0 +1,69 @@
+@prefix champ-onto: <https://schema.champi40ns.eu#> .
+@prefix champ-inst: <https://resource.champi40ns.eu/> .
+@prefix champ-taxo: <https://taxonomy.champi40ns.eu/> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rsx: <http://rdf4j.org/shacl-extensions#> .
+
+champ-inst:SawmillArrivalShape
+    a sh:NodeShape ;
+    sh:targetClass champ-onto:Log ;
+
+    sh:sparql [
+        a sh:SPARQLConstraint ;
+        sh:prefixes [
+            sh:declare [
+                sh:prefix "champ-onto" ;
+                sh:namespace "https://schema.champi40ns.eu#" ;
+            ] ;
+            sh:declare [
+                sh:prefix "champ-inst" ;
+                sh:namespace "https://resource.champi40ns.eu/" ;
+            ] ;
+            sh:declare [
+                sh:prefix "xsd" ;
+                sh:namespace "http://www.w3.org/2001/XMLSchema#" ;
+            ] ;
+        ] ;
+        sh:message "Company should be different!" ;
+        sh:select """
+            SELECT ?this ?this2
+            WHERE {
+                GRAPH <https://data.champi40ns.eu/forest/> { ?this champ-onto:company ?c . }
+                GRAPH <https://data.champi40ns.eu/sawmill-arrival/> { ?this2 champ-onto:company ?c . }
+            }
+        """ ;
+    ] .
+
+
+champ-inst:SawmillArrival2Shape
+    a sh:NodeShape ;
+    sh:targetClass champ-onto:Log ;
+
+    sh:sparql [
+        a sh:SPARQLConstraint ;
+        sh:prefixes [
+            sh:declare [
+                sh:prefix "champ-onto" ;
+                sh:namespace "https://schema.champi40ns.eu#" ;
+            ] ;
+            sh:declare [
+                sh:prefix "champ-inst" ;
+                sh:namespace "https://resource.champi40ns.eu/" ;
+            ] ;
+            sh:declare [
+                sh:prefix "xsd" ;
+                sh:namespace "http://www.w3.org/2001/XMLSchema#" ;
+            ] ;
+        ] ;
+        sh:message "Seller and company should be the same!" ;
+        sh:select """
+            SELECT ?this
+             WHERE {
+                ?this champ-onto:seller ?seller .
+                ?this champ-onto:company ?company .
+                FILTER(?seller != ?company)
+            }
+        """ ;
+    ] .
+
