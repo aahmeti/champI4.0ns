@@ -23,3 +23,92 @@ This repository contains champI4.0ns Digital Product Passport (DPP) Knowledge Gr
 	- `https://data.champi40ns.eu/joinery-arrival/`
 	- `https://data.champi40ns.eu/joinery-product/`
 	- `https://data.champi40ns.eu/transport/`
+
+
+# Query Rewriter based on consistent query answering (CQA)
+
+
+A small Java (Apache Jena / ARQ) utility that rewrites a SPARQL query to enforce **ODRL** read permissions/prohibitions.
+
+The CLI takes:
+- a **user** IRI
+- a **named graph** IRI
+- a folder containing one or more ODRL Turtle policy files (`.ttl`)
+
+…and prints the rewritten SPARQL query.
+
+## Query rewriting algorithm
+
+The CLI always starts from a fixed graph query (the graph is provided as input):
+
+```sparql
+SELECT ?s ?p ?o WHERE { GRAPH <GRAPH_IRI> { ?s ?p ?o } }
+```
+
+Internally, the query is normalized to:
+
+- `GRAPH ?g { ?s ?p ?o }`
+- plus a `FILTER (?g = <GRAPH_IRI>)`
+
+…and then the rewrite injects policy enforcement.
+
+## Policy folder used in the example
+
+This repo contains a small example policy file:
+
+- `src/main/resources/odrl_test/example_policies.ttl`
+
+
+### What the example policy expresses (high level)
+
+For the graph `<https://data.champi40ns.eu/joinery-product>` and user `<https://resource.champi40ns.eu/user_alice>`:
+
+- **Permission**: allow reading the predicates
+  - `<https://schema.champi40ns.eu#wasteInPercentage>`
+  - `<https://schema.champi40ns.eu#waste>`
+- **Prohibition**: deny reading the predicate
+  - `<https://schema.champi40ns.eu#waste2>`
+
+Those predicates come from `rdf:predicate` statements attached to the policy’s `odrl:target` assets.
+
+## Run the CLI (Terminal)
+
+From the repo root:
+
+```bash
+mvn -q -DskipTests package
+mvn -q -DincludeScope=runtime -Dmdep.outputFile=target/classpath.txt dependency:build-classpath
+CP="$(cat target/classpath.txt):target/classes"
+
+java -cp "$CP" aclshacl.Main_CLI \
+  --user-uri https://resource.champi40ns.eu/user_alice \
+  --graph https://data.champi40ns.eu/joinery-product \
+  --odrl-folder src/main/resources/odrl_test/
+```
+
+## Example output (rewritten query)
+
+Running the command above prints a rewritten query similar to the following:
+
+```sparql
+SELECT  ?s ?p ?o
+WHERE
+  { GRAPH ?g
+      { ?s  ?p  ?o }
+    FILTER ( ?g = <https://data.champi40ns.eu/joinery-product> )
+    { GRAPH <urn:acl>
+        { _:b0      <http://www.w3.org/ns/odrl/2/target>  <https://resource.champi40ns.eu/Forest_prop1_Asset> ;
+                    <http://www.w3.org/ns/odrl/2/action>  <http://www.w3.org/ns/odrl/2/read> ;
+                    <http://www.w3.org/ns/odrl/2/assignee>  ?user .
+          <https://resource.champi40ns.eu/Forest_prop1_Asset>
+                    a                     <http://www.w3.org/ns/odrl/2/Asset> ;
+                    <http://www.w3.org/ns/odrl/2/partOf>  ?g
+        }
+    }
+    FILTER ( ?p IN (<https://schema.champi40ns.eu#wasteInPercentage>, <https://schema.champi40ns.eu#waste>) )
+    FILTER ( ?p NOT IN (<https://schema.champi40ns.eu#waste2>) )
+    FILTER ( ?user = <https://resource.champi40ns.eu/user_alice> )
+  }
+```
+
+
