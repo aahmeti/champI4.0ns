@@ -1,0 +1,73 @@
+prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+prefix odrl: <http://www.w3.org/ns/odrl/2/> 
+prefix champ-inst: <https://resource.champi40ns.eu/>
+prefix champ-onto: <https://schema.champi40ns.eu#>
+prefix vcard: <http://www.w3.org/2006/vcard/ns#>
+
+champ-inst:AuthorizedForestUsers a odrl:PartyCollection ;
+    vcard:hasMember champ-inst:user_alice ,
+                champ-inst:user_2 ,
+                champ-inst:user_3 .
+
+champ-inst:policyAllowDataset0 a odrl:Set ;
+	
+    odrl:permission [
+		odrl:target <https://data.champi40ns.eu/joinery-product> ;
+		odrl:action odrl:read ; 
+		odrl:assignee champ-inst:user_alice
+    ] .
+
+champ-inst:ProductView_1 a odrl:Asset ;
+    odrl:partOf <https://data.champi40ns.eu/joinery-product> ;
+    odrl:refinement [
+        odrl:leftOperand champ-onto:wasteInPercentage ;
+        odrl:operator odrl:lteq ;
+        odrl:rightOperand 50 ] .
+
+champ-inst:ProductView_2 a odrl:Asset ;
+    odrl:partOf <https://data.champi40ns.eu/joinery-product> ;
+    odrl:refinement [
+        odrl:leftOperand champ-onto:wasteInPercentage ;
+        odrl:operator odrl:gteq ;
+        odrl:rightOperand 10 ] .
+
+champ-inst:policyAllowDataset1 a odrl:Set ;
+	
+    odrl:permission [
+		odrl:target champ-inst:ProductView_1 ;
+		odrl:action odrl:read ; 
+		odrl:assignee champ-inst:user_alice
+    ] .
+
+champ-inst:policyAllowDataset2 a odrl:Set ;
+	
+    odrl:permission [
+		odrl:target champ-inst:ProductView_2 ;
+		odrl:action odrl:read ; 
+		odrl:assignee champ-inst:AuthorizedForestUsers
+    ] .
+
+
+champ-inst:ForestView_2 a odrl:Asset ;
+    odrl:partOf  <https://data.champi40ns.eu/joinery-product>  ;
+    odrl:refinement [
+        odrl:and (
+            [
+              odrl:leftOperand champ-onto:wasteInPercentage ;
+              odrl:operator odrl:lteq ;
+              odrl:rightOperand 20
+            ]
+            [
+              odrl:leftOperand champ-onto:wasteInPercentage ;
+              odrl:operator odrl:gteq ;
+              odrl:rightOperand 10
+            ]
+        )
+    ] .
+
+champ-inst:policyAllowDatasetProperty a odrl:Set ;
+    odrl:prohibition [
+        odrl:target champ-inst:ForestView_2 ;
+        odrl:assignee champ-inst:user_alice ;
+        odrl:action odrl:read ;
+    ] .

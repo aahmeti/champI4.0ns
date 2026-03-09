@@ -1,0 +1,34 @@
+prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+prefix odrl: <http://www.w3.org/ns/odrl/2/> 
+prefix champ-inst: <https://resource.champi40ns.eu/>
+prefix champ-onto: <https://schema.champi40ns.eu#>
+prefix vcard: <http://www.w3.org/2006/vcard/ns#>
+
+
+champ-inst:Product_props1_Asset a odrl:Asset ;
+    odrl:partOf <https://data.champi40ns.eu/joinery-product> ; 
+    rdf:predicate champ-onto:wasteInPercentage ;
+    rdf:predicate champ-onto:wasteFromTrunkInPercentage .
+
+
+champ-inst:Product_props2_Asset a odrl:Asset ;
+    odrl:partOf <https://data.champi40ns.eu/joinery-product> ; 
+    rdf:predicate champ-onto:moistureContentInPercentage .
+
+
+champ-inst:policyAllowDatasetProperties a odrl:Set ;
+
+    odrl:permission [
+		odrl:target champ-inst:Product_props1_Asset ;
+		odrl:action odrl:read ; 
+		odrl:assignee champ-inst:user_alice
+    ] .
+
+champ-inst:policyProhibitDatasetProperties a odrl:Set ;
+
+    odrl:prohibition [
+		odrl:target champ-inst:Product_props2_Asset ;
+		odrl:action odrl:read ; 
+		odrl:assignee champ-inst:user_alice
+    ] .
+

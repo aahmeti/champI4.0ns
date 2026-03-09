@@ -1,7 +1,7 @@
 
 # champI4.0ns DPP Knowledge Graph
 
-This repository contains champI4.0ns Digital Product Passport (DPP) Knowledge Graph and the implementation for access controls in Java.
+This repository contains champI4.0ns Digital Product Passport (DPP) Knowledge Graph and the prototypical implementation for access controls in Java.
 
 ## Repository layout
 
@@ -25,17 +25,18 @@ This repository contains champI4.0ns Digital Product Passport (DPP) Knowledge Gr
 	- `https://data.champi40ns.eu/transport/`
 
 
-# Query Rewriter based on consistent query answering (CQA)
+# SPARQL Query Rewriting Based on Access Control Rules
 
+![Workflow](images/Access%20controls%20workflow.jpg)
 
-A small Java (Apache Jena / ARQ) utility that rewrites a SPARQL query to enforce **ODRL** read permissions/prohibitions.
+A **prototypical** Java (Apache Jena / ARQ) implementation that rewrites a SPARQL query to enforce **ODRL** read permissions/prohibitions.
 
-The CLI takes:
+The CLI takes as input the following:
 - a **user** IRI
 - a **named graph** IRI
-- a folder containing one or more ODRL Turtle policy files (`.ttl`)
+- a folder containing one or more **ODRL Turtle policy files (`.ttl`)**
 
-…and prints the rewritten SPARQL query.
+…and returns/prints the **rewritten SPARQL query**.
 
 ## Query rewriting algorithm
 
@@ -47,19 +48,55 @@ SELECT ?s ?p ?o WHERE { GRAPH <GRAPH_IRI> { ?s ?p ?o } }
 
 Internally, the query is normalized to:
 
-- `GRAPH ?g { ?s ?p ?o }`
-- plus a `FILTER (?g = <GRAPH_IRI>)`
+- `GRAPH ?g { ?s ?p ?o } FILTER (?g = <GRAPH_IRI>)`
 
 …and then the rewrite injects policy enforcement.
 
 ## Policy folder used in the example
 
-This repo contains a small example policy file:
+This repo contains a few examples of policy files:
 
 - `src/main/resources/odrl_test/example_policies.ttl`
+- `src/main/resources/odrl_test/example_readme.ttl`
 
 
-### What the example policy expresses (high level)
+### Examples
+
+```
+prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+prefix odrl: <http://www.w3.org/ns/odrl/2/> 
+prefix champ-inst: <https://resource.champi40ns.eu/>
+prefix champ-onto: <https://schema.champi40ns.eu#>
+prefix vcard: <http://www.w3.org/2006/vcard/ns#>
+
+
+champ-inst:Forest_props1_Asset a odrl:Asset ;
+    odrl:partOf <https://data.champi40ns.eu/joinery-product> ; 
+    rdf:predicate champ-onto:wasteInPercentage ;
+    rdf:predicate champ-onto:wasteFromTrunkInPercentage .
+
+
+champ-inst:Forest_props2_Asset a odrl:Asset ;
+    odrl:partOf <https://data.champi40ns.eu/joinery-product> ; 
+    rdf:predicate champ-onto:moistureContentInPercentage .
+
+
+champ-inst:policyAllowDatasetProperties a odrl:Set ;
+
+    odrl:permission [
+		odrl:target champ-inst:Forest_props1_Asset ;
+		odrl:action odrl:read ; 
+		odrl:assignee champ-inst:user_alice
+    ] .
+
+champ-inst:policyProhibitDatasetProperties a odrl:Set ;
+
+    odrl:prohibition [
+		odrl:target champ-inst:Forest_props2_Asset ;
+		odrl:action odrl:read ; 
+		odrl:assignee champ-inst:user_alice
+    ] .
+```
 
 For the graph `<https://data.champi40ns.eu/joinery-product>` and user `<https://resource.champi40ns.eu/user_alice>`:
 
@@ -100,7 +137,7 @@ WHERE
         { _:b0      <http://www.w3.org/ns/odrl/2/target>  <https://resource.champi40ns.eu/Forest_prop1_Asset> ;
                     <http://www.w3.org/ns/odrl/2/action>  <http://www.w3.org/ns/odrl/2/read> ;
                     <http://www.w3.org/ns/odrl/2/assignee>  ?user .
-          <https://resource.champi40ns.eu/Forest_prop1_Asset>
+          <https://resource.champi40ns.eu/Product_prop1_Asset>
                     a                     <http://www.w3.org/ns/odrl/2/Asset> ;
                     <http://www.w3.org/ns/odrl/2/partOf>  ?g
         }
