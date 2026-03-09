@@ -65,9 +65,9 @@ For the graph `<https://data.champi40ns.eu/joinery-product>` and user `<https://
 
 - **Permission**: allow reading the predicates
   - `<https://schema.champi40ns.eu#wasteInPercentage>`
-  - `<https://schema.champi40ns.eu#waste>`
+  - `<https://schema.champi40ns.eu#wasteFromTrunkInPercentage>`
 - **Prohibition**: deny reading the predicate
-  - `<https://schema.champi40ns.eu#waste2>`
+  - `<https://schema.champi40ns.eu#moistureContentInPercentage>`
 
 Those predicates come from `rdf:predicate` statements attached to the policy’s `odrl:target` assets.
 
@@ -105,8 +105,8 @@ WHERE
                     <http://www.w3.org/ns/odrl/2/partOf>  ?g
         }
     }
-    FILTER ( ?p IN (<https://schema.champi40ns.eu#wasteInPercentage>, <https://schema.champi40ns.eu#waste>) )
-    FILTER ( ?p NOT IN (<https://schema.champi40ns.eu#waste2>) )
+    FILTER ( ?p IN (<https://schema.champi40ns.eu#wasteInPercentage>, <https://schema.champi40ns.eu#wasteFromTrunkInPercentage>) )
+    FILTER ( ?p NOT IN (<https://schema.champi40ns.eu#moistureContentInPercentage>) )
     FILTER ( ?user = <https://resource.champi40ns.eu/user_alice> )
   }
 ```
