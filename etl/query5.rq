@@ -1,0 +1,18 @@
+PREFIX spif: <http://spinrdf.org/spif#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+prefix champ-onto: <https://schema.champi40ns.eu#>
+prefix champ-inst: <https://resource.champi40ns.eu/>
+
+INSERT {
+    graph <https://data.champi40ns.eu/joinery-product> {
+		?board champ-onto:isUsedToProduce ?product . 
+    }
+}
+where
+{
+    graph <https://data.champi40ns.eu/joinery-product> { ?product champ-onto:label ?labels }
+    ?label spif:split (?labels "-") # split based on "-"
+    
+    graph <https://data.champi40ns.eu/sawmill-output> { ?board champ-onto:label ?label }
+    
+} 

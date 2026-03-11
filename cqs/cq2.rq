@@ -1,0 +1,15 @@
+# From which coordinates the logs of a certain product come from?
+# Log -> Board -> Product
+
+prefix champ-onto: <https://schema.champi40ns.eu#>
+prefix champ-inst: <https://resource.champi40ns.eu/>
+
+SELECT distinct ?lat ?lon
+WHERE
+{
+    ?product a champ-onto:Product . 
+    ?board champ-onto:isUsedToProduce ?product . 
+    ?log champ-onto:isUsedToProduce ?board . 
+    ?log champ-onto:gpsLat ?lat ;  champ-onto:gpsLong ?lon . 
+    filter (?product = <https://resource.champi40ns.eu/Product/1>)
+}

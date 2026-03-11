@@ -1,0 +1,15 @@
+# From which tree species has this certain product been made of?
+# Log -> Board -> Product
+
+prefix champ-onto: <https://schema.champi40ns.eu#>
+prefix champ-inst: <https://resource.champi40ns.eu/>
+
+SELECT distinct ?species
+WHERE
+{
+    ?product a champ-onto:Product . 
+    ?board champ-onto:isUsedToProduce ?product . 
+    ?log champ-onto:isUsedToProduce ?board . 
+    ?log champ-onto:woodSpecies ?species . 
+    filter (?product = <https://resource.champi40ns.eu/Product/1>)
+}
