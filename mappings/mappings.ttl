@@ -12,9 +12,10 @@
   ];
   rr:subjectMap [
     rr:template "https://resource.champi40ns.eu/Log/{label}" ;
-    rr:class champ-onto:Log ;
-    rr:graphMap [ rr:constant <https://data.champi40ns.eu/forest/> ]
+    rr:class champ-onto:Log , champ-onto:RawMaterial ;
+    rr:graphMap [ rr:constant <https://data.champi40ns.eu/forest> ]
   ];
+  rr:predicateObjectMap [ rr:predicate champ-onto:label ; rr:objectMap [ rml:reference "label" ] ] ;
   rr:predicateObjectMap [ rr:predicate champ-onto:company ; rr:objectMap [ rml:reference "Company" ] ] ;
   rr:predicateObjectMap [ rr:predicate champ-onto:country ; rr:objectMap [ rml:reference "Country" ] ] ;
   rr:predicateObjectMap [ rr:predicate champ-onto:federalState ; rr:objectMap [ rml:reference "Federal state" ] ] ;
@@ -45,10 +46,11 @@
     rml:referenceFormulation ql:CSV
   ];
   rr:subjectMap [
-    rr:template "https://resource.champi40ns.eu/Product/{Label of boards}" ;
+    rr:template "https://resource.champi40ns.eu/Product/{ID}" ;
     rr:class champ-onto:Product ;
-    rr:graphMap [ rr:constant <https://data.champi40ns.eu/joinery-product/> ]
+    rr:graphMap [ rr:constant <https://data.champi40ns.eu/joinery-product> ]
   ];
+  rr:predicateObjectMap [ rr:predicate champ-onto:label ; rr:objectMap [ rml:reference "Label of boards" ] ] ;
   rr:predicateObjectMap [ rr:predicate champ-onto:company ; rr:objectMap [ rml:reference "Company" ] ] ;
   rr:predicateObjectMap [ rr:predicate champ-onto:dateOfOrder ; rr:objectMap [ rml:reference "Date of order" ] ] ;
   rr:predicateObjectMap [ rr:predicate champ-onto:dateOfProduction ; rr:objectMap [ rml:reference "Date of production" ] ] ;
@@ -80,10 +82,11 @@
     rml:referenceFormulation ql:CSV
   ];
   rr:subjectMap [
-    rr:template "https://resource.champi40ns.eu/product/{Label of boards}" ;
+    rr:template "https://resource.champi40ns.eu/Product/{ID}" ;
     rr:class champ-onto:Product ;
-    rr:graphMap [ rr:constant <https://data.champi40ns.eu/joinery-product/> ]
+    rr:graphMap [ rr:constant <https://data.champi40ns.eu/joinery-product> ]
   ];
+  rr:predicateObjectMap [ rr:predicate champ-onto:label ; rr:objectMap [ rml:reference "Label of boards" ] ] ;
   rr:predicateObjectMap [ rr:predicate champ-onto:company ; rr:objectMap [ rml:reference "Company" ] ] ;
   rr:predicateObjectMap [ rr:predicate champ-onto:dateOfOrder ; rr:objectMap [ rml:reference "Date of order" ] ] ;
   rr:predicateObjectMap [ rr:predicate champ-onto:dateOfProduction ; rr:objectMap [ rml:reference "Date of production" ] ] ;
@@ -114,10 +117,11 @@
     rml:referenceFormulation ql:CSV
   ];
   rr:subjectMap [
-    rr:template "https://resource.champi40ns.eu/product/{Label of boards}" ;
+    rr:template "https://resource.champi40ns.eu/Product/{ID}" ;
     rr:class champ-onto:Product ;
-    rr:graphMap [ rr:constant <https://data.champi40ns.eu/joinery-product/> ]
+    rr:graphMap [ rr:constant <https://data.champi40ns.eu/joinery-product> ]
   ];
+  rr:predicateObjectMap [ rr:predicate champ-onto:label ; rr:objectMap [ rml:reference "Label of boards" ] ] ;
   rr:predicateObjectMap [ rr:predicate champ-onto:company ; rr:objectMap [ rml:reference "Company" ] ] ;
   rr:predicateObjectMap [ rr:predicate champ-onto:dateOfOrder ; rr:objectMap [ rml:reference "Date of order" ] ] ;
   rr:predicateObjectMap [ rr:predicate champ-onto:dateOfProduction ; rr:objectMap [ rml:reference "Date of production" ] ] ;
@@ -149,9 +153,10 @@
   ];
   rr:subjectMap [
     rr:template "https://resource.champi40ns.eu/Board/{label}" ;
-    rr:class champ-onto:Board ;
-    rr:graphMap [ rr:constant <https://data.champi40ns.eu/joinery-arrival/> ]
+    rr:class champ-onto:Board ,  champ-onto:Material ;
+    rr:graphMap [ rr:constant <https://data.champi40ns.eu/joinery-arrival> ]
   ];
+  rr:predicateObjectMap [ rr:predicate champ-onto:label ; rr:objectMap [ rml:reference "label" ] ] ;
   rr:predicateObjectMap [ rr:predicate champ-onto:company ; rr:objectMap [ rml:reference "Company" ] ] ;
   rr:predicateObjectMap [ rr:predicate champ-onto:seller ; rr:objectMap [ rml:reference "Seller" ] ] ;
   rr:predicateObjectMap [ rr:predicate champ-onto:orderDate ; rr:objectMap [ rml:reference "Order date" ] ] ;
@@ -179,9 +184,10 @@
   ];
   rr:subjectMap [
     rr:template "https://resource.champi40ns.eu/Board/{label}" ;
-    rr:class champ-onto:Board ;
-    rr:graphMap [ rr:constant <https://data.champi40ns.eu/joinery-arrival/> ]
+    rr:class champ-onto:Board ,  champ-onto:Material ;
+    rr:graphMap [ rr:constant <https://data.champi40ns.eu/joinery-arrival> ]
   ];
+  rr:predicateObjectMap [ rr:predicate champ-onto:label ; rr:objectMap [ rml:reference "label" ] ] ;
   rr:predicateObjectMap [ rr:predicate champ-onto:company ; rr:objectMap [ rml:reference "Company" ] ] ;
   rr:predicateObjectMap [ rr:predicate champ-onto:seller ; rr:objectMap [ rml:reference "Seller" ] ] ;
   rr:predicateObjectMap [ rr:predicate champ-onto:orderDate ; rr:objectMap [ rml:reference "Order date" ] ] ;
@@ -209,9 +215,10 @@
   ];
   rr:subjectMap [
     rr:template "https://resource.champi40ns.eu/Board/{label}" ;
-    rr:class champ-onto:Board ;
-    rr:graphMap [ rr:constant <https://data.champi40ns.eu/joinery-arrival/> ]
+    rr:class champ-onto:Board ,  champ-onto:Material ;
+    rr:graphMap [ rr:constant <https://data.champi40ns.eu/joinery-arrival> ]
   ];
+  rr:predicateObjectMap [ rr:predicate champ-onto:label ; rr:objectMap [ rml:reference "label" ] ] ;
   rr:predicateObjectMap [ rr:predicate champ-onto:company ; rr:objectMap [ rml:reference "Company" ] ] ;
   rr:predicateObjectMap [ rr:predicate champ-onto:seller ; rr:objectMap [ rml:reference "Seller" ] ] ;
   rr:predicateObjectMap [ rr:predicate champ-onto:orderDate ; rr:objectMap [ rml:reference "Order date" ] ] ;
@@ -239,9 +246,10 @@
   ];
   rr:subjectMap [
     rr:template "https://resource.champi40ns.eu/Log/{label}" ;
-    rr:class champ-onto:Log ;
-    rr:graphMap [ rr:constant <https://data.champi40ns.eu/sawmill-arrival/> ]
+    rr:class champ-onto:Log , champ-onto:RawMaterial ;
+    rr:graphMap [ rr:constant <https://data.champi40ns.eu/sawmill-arrival> ]
   ];
+  rr:predicateObjectMap [ rr:predicate champ-onto:label ; rr:objectMap [ rml:reference "label" ] ] ;
   rr:predicateObjectMap [ rr:predicate champ-onto:company ; rr:objectMap [ rml:reference "Company" ] ] ;
   rr:predicateObjectMap [ rr:predicate champ-onto:seller ; rr:objectMap [ rml:reference "Seller" ] ] ;
   rr:predicateObjectMap [ rr:predicate champ-onto:deliveryNumber ; rr:objectMap [ rml:reference "Delivery number" ; rr:datatype xsd:integer ] ] ;
@@ -265,9 +273,10 @@
   ];
   rr:subjectMap [
     rr:template "https://resource.champi40ns.eu/Board/{label}" ;
-    rr:class champ-onto:Board ;
-    rr:graphMap [ rr:constant <https://data.champi40ns.eu/sawmill-output/> ]
+    rr:class champ-onto:Board , champ-onto:Material ;
+    rr:graphMap [ rr:constant <https://data.champi40ns.eu/sawmill-output> ]
   ];
+  rr:predicateObjectMap [ rr:predicate champ-onto:label ; rr:objectMap [ rml:reference "label" ] ] ;
   rr:predicateObjectMap [ rr:predicate champ-onto:company ; rr:objectMap [ rml:reference "Company" ] ] ;
   rr:predicateObjectMap [ rr:predicate champ-onto:productionDate ; rr:objectMap [ rml:reference "Production date" ] ] ;
   rr:predicateObjectMap [ rr:predicate champ-onto:dateOfSale ; rr:objectMap [ rml:reference "Date of sale" ] ] ;
@@ -297,9 +306,10 @@
   rr:subjectMap [
     rr:template "https://resource.champi40ns.eu/Transport/{ID}" ;
     rr:class champ-onto:Transport ;
-    rr:graphMap [ rr:constant <https://data.champi40ns.eu/transport/> ]
+    rr:graphMap [ rr:constant <https://data.champi40ns.eu/transport> ]
   ];
   rr:predicateObjectMap [ rr:predicate champ-onto:id ; rr:objectMap [ rml:reference "ID" ] ] ;
+  rr:predicateObjectMap [ rr:predicate champ-onto:label ; rr:objectMap [ rml:reference "label" ] ] ;
   rr:predicateObjectMap [ rr:predicate champ-onto:cargoVehicle ; rr:objectMap [ rml:reference "Cargo vehicle" ] ] ;
   rr:predicateObjectMap [ rr:predicate champ-onto:deliveryLocation ; rr:objectMap [ rml:reference "Delivery location" ] ] ;
   rr:predicateObjectMap [ rr:predicate champ-onto:deliveryNo ; rr:objectMap [ rml:reference "Delivery number" ; rr:datatype xsd:integer ] ] ;

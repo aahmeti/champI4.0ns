@@ -17,12 +17,12 @@ This repository contains champI4.0ns Digital Product Passport (DPP) Knowledge Gr
 - Instance namespace: `https://resource.champi40ns.eu/`
 - Ontology namespace: `https://schema.champi40ns.eu#`
 - Named graphs used by the mappings:
-	- `https://data.champi40ns.eu/forest/`
-	- `https://data.champi40ns.eu/sawmill-arrival/`
-	- `https://data.champi40ns.eu/sawmill-output/`
-	- `https://data.champi40ns.eu/joinery-arrival/`
-	- `https://data.champi40ns.eu/joinery-product/`
-	- `https://data.champi40ns.eu/transport/`
+	- `https://data.champi40ns.eu/forest`
+	- `https://data.champi40ns.eu/sawmill-arrival`
+	- `https://data.champi40ns.eu/sawmill-output`
+	- `https://data.champi40ns.eu/joinery-arrival`
+	- `https://data.champi40ns.eu/joinery-product`
+	- `https://data.champi40ns.eu/transport`
 
 
 # SPARQL Query Rewriting Based on Access Control Rules
@@ -70,13 +70,13 @@ prefix champ-onto: <https://schema.champi40ns.eu#>
 prefix vcard: <http://www.w3.org/2006/vcard/ns#>
 
 
-champ-inst:Forest_props1_Asset a odrl:Asset ;
+champ-inst:Product_props1_Asset a odrl:Asset ;
     odrl:partOf <https://data.champi40ns.eu/joinery-product> ; 
     rdf:predicate champ-onto:wasteInPercentage ;
     rdf:predicate champ-onto:wasteFromTrunkInPercentage .
 
 
-champ-inst:Forest_props2_Asset a odrl:Asset ;
+champ-inst:Product_props2_Asset a odrl:Asset ;
     odrl:partOf <https://data.champi40ns.eu/joinery-product> ; 
     rdf:predicate champ-onto:moistureContentInPercentage .
 

@@ -1,0 +1,14 @@
+delete {
+    graph ?g { ?s ?p ?o . ?s ?q ?o2 . }
+}
+insert {
+    graph ?g { ?s ?p true . ?s ?q false }
+}
+where
+{
+    graph ?g {
+        { ?s ?p ?o . FILTER (?o = 'Yes' || ?o = 'yes') }
+ 		UNION 
+        { ?s ?q ?o2 . FILTER (?o2 = 'No' || ?o2 = 'no') }
+    }
+}

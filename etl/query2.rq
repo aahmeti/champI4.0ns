@@ -1,0 +1,9 @@
+delete {
+    graph ?g { ?s ?p ?o }
+}
+where
+{
+    graph ?g {
+        ?s ?p ?o . FILTER (?o = '')
+    }
+}

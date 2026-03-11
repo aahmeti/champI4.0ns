@@ -1,0 +1,32 @@
+prefix champ-onto: <https://schema.champi40ns.eu#>
+prefix champ-inst: <https://resource.champi40ns.eu/>
+
+INSERT { 
+    graph <https://data.champi40ns.eu/transport> {
+		?new champ-onto:refersToLogTransport ?transport 
+	}
+}
+where
+{ 
+    	BIND (URI(CONCAT(str(champ-inst:), "Transport/", str(?no))) as ?new)
+        ?forest champ-onto:refersToTransport ?transport .
+
+        ?transport champ-onto:deliveryNo ?delivery_number ; 
+        			champ-onto:deliveryLocation ?location ; 
+                    champ-onto:cargoVehicle ?vehicle ; 
+                    champ-onto:loadingPointGPSLong ?long ;
+                    champ-onto:loadingPointGPSLat ?lat ;  
+                    champ-onto:freightDepartureDate ?date ; 
+            		champ-onto:import ?import ; 
+        			champ-onto:export ?export ; 
+        			champ-onto:nationalTrade ?national_trade ; 
+        			champ-onto:certification ?certification ;
+					champ-onto:company ?company . 
+        {
+            select ?no ?transport
+            where {
+                ?transport champ-onto:deliveryNo ?no . 
+            } group by ?no ?transport
+        }
+    
+}

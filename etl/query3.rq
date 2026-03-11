@@ -1,0 +1,27 @@
+prefix champ-onto: <https://schema.champi40ns.eu#>
+prefix champ-inst: <https://resource.champi40ns.eu/>
+
+insert {
+    graph <https://data.champi40ns.eu/sawmill-output> {
+		?forest champ-onto:isUsedToProduce ?sawO . 
+  	}
+    graph <https://data.champi40ns.eu/transport> {
+		?forest champ-onto:refersToTransport ?transport  . 
+  	}
+}
+where
+{
+    ## logs
+    graph <https://data.champi40ns.eu/forest> { ?forest champ-onto:label ?label . }
+    
+    ## track the transport
+    graph <https://data.champi40ns.eu/transport> { ?transport champ-onto:label ?label . }
+    
+    ## make sure they all arrived in sawmill
+    graph <https://data.champi40ns.eu/sawmill-arrival> { ?sawA champ-onto:label ?label . }
+    
+    ## check for string equality
+    graph <https://data.champi40ns.eu/sawmill-output> { ?sawO champ-onto:label ?labelSO . BIND (strbefore(?labelSO, "B") as ?labelSOB) }
+  
+    FILTER (?label = ?labelSOB)
+} 
