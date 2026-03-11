@@ -1,0 +1,15 @@
+# Logs harvested at the same location (same coordinates)
+
+PREFIX champ-onto: <https://schema.champi40ns.eu#>
+
+select ?log ?lat ?long
+where
+{
+      ?log champ-onto:gpsLat ?lat . 
+      ?log champ-onto:gpsLong ?long .
+      
+      ?log2 champ-onto:gpsLat ?lat . 
+      ?log2 champ-onto:gpsLong ?long .
+      
+      filter (?log != ?log2)
+}

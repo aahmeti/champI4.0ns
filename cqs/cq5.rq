@@ -1,0 +1,29 @@
+# What is the ratio of the number of boards to the number of logs?
+
+PREFIX champ-onto: <https://schema.champi40ns.eu#>
+SELECT ?ratio
+WHERE
+{
+    
+    BIND (?cntBoards / ?cntLog as ?ratio)
+    
+    {
+        SELECT (COUNT(distinct ?board) as ?cntBoards)
+        WHERE
+        {
+            ?board a champ-onto:Board . 
+            ?log a champ-onto:Log . 
+            ?log champ-onto:isUsedToProduce ?board . 
+        } 
+    }
+    
+    {
+        SELECT (COUNT(distinct ?log) as ?cntLog)
+        WHERE 
+        {
+            ?board a champ-onto:Board .
+            ?log a champ-onto:Log . 
+		?log champ-onto:isUsedToProduce ?board . 
+        }
+    }
+}

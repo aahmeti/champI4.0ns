@@ -1,0 +1,11 @@
+# Is the certain board certified?
+
+prefix champ-onto: <https://schema.champi40ns.eu#>
+prefix champ-inst-b: <https://resource.champi40ns.eu/Board/>
+
+SELECT ?certification
+WHERE
+{
+    ?board champ-onto:certification ?certification . 
+    VALUES ?board { champ-inst-b:F1L1002B1 }
+}
